@@ -17,8 +17,10 @@ func newOverlayProgressWindow(startedAt: Date, timeInterval: TimeInterval) -> NS
 
     let overlayWindow = NSWindow(contentRect: menuBarRect, styleMask: .borderless, backing: .buffered, defer: false, screen: NSScreen.screens[0])
 
+    let overlayCGWindowLevel = CGWindowLevelForKey(.mainMenuWindow)
+    
     overlayWindow.ignoresMouseEvents = true
-    overlayWindow.level = NSWindow.Level(rawValue: NSWindow.Level.RawValue(CGShieldingWindowLevel()))
+    overlayWindow.level = NSWindow.Level(rawValue: NSWindow.Level.RawValue(overlayCGWindowLevel))
     overlayWindow.backgroundColor = .clear
 
     let progressPublisher = Timer.publish(every: 0.1, on: .main, in: .common)
