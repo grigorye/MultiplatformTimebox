@@ -11,7 +11,7 @@ struct BoundMainContentView : View {
     
     let businessLogicController: BusinessLogicController
     
-    @FetchRequest(fetchRequest: CDItem.fetchRequestForManualOrder()/*, animation: .default*/)
+    @FetchRequest(fetchRequest: CDItem.fetchRequestForManualOrder(ascending: false)/*, animation: .default*/)
     var items: FetchedResults<CDItem>
     
     var body: some View {

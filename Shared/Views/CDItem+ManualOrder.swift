@@ -9,10 +9,10 @@ import CoreData
 
 extension CDItem {
     
-    @nonobjc public class func fetchRequestForManualOrder() -> NSFetchRequest<CDItem> {
+    @nonobjc public class func fetchRequestForManualOrder(ascending: Bool = true) -> NSFetchRequest<CDItem> {
         let fetchRequest: NSFetchRequest<CDItem> = self.fetchRequest()
         fetchRequest.sortDescriptors = [
-            NSSortDescriptor(key: #keyPath(cd_manualOrder), ascending: true)
+            NSSortDescriptor(key: #keyPath(cd_manualOrder), ascending: ascending)
         ]
         return fetchRequest
     }
