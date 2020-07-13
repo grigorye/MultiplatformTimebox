@@ -12,17 +12,19 @@ struct TimeIntervalEditor : View {
     @Binding var timeInterval: TimeInterval
     
     @State private var timeIntervalString: String = ""
-    
+
+    var selected: Bool = false
+
     var body: some View {
-        TextField(
-            "",
+        SelectableTextField(
             text: $timeIntervalString,
-            onEditingChanged: { _ in
+            selected: selected,
+            onCommit: {
                 timeInterval = timeIntervalFromString(timeIntervalString)
             }
         )
         .onAppear {
-            self.timeIntervalString = stringFromTimeInterval(timeInterval)
+            timeIntervalString = stringFromTimeInterval(timeInterval)
         }
         .multilineTextAlignment(.trailing)
     }

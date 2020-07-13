@@ -14,34 +14,41 @@ struct ItemRow<VItem: Item, HoveredView: View> : View {
     
     @State private var hovered: Bool = false
     
-    private let hoveredView: HoveredView
+    @Environment(\.itemOrderDebugEnabled)
+    var itemOrderDebugEnabled: Bool
     
-    init(item: Binding<VItem>, @ViewBuilder hoveredView: @escaping () -> HoveredView) {
+    let selected: Bool
+    let hoveredView: HoveredView
+    
+    init(item: Binding<VItem>, selected: Bool = false, @ViewBuilder hoveredView: @escaping () -> HoveredView) {
         self._item = item
         self.hoveredView = hoveredView()
+        self.selected = selected
     }
     
     var body: some View {
         HStack {
             Knob {
-                if hovered {
+                if hovered || item.isPlaying {
                     hoveredView
                 }
             }
-            Text("\(item.index)")
-                .frame(width: 24, height: nil, alignment: .trailing)
-            TextField("", text: $item.title, onEditingChanged: {_ in }, onCommit: {})
+            SelectableTextField(text: $item.title, selected: selected)
             Text(stringFromTimeInterval(item.previouslyLogged))
                 .frame(width: 64, height: nil, alignment: .trailing)
             if let startedAt = item.startedAt {
                 TimeIntervalView(timeIntervalPublisher: newTimeRemainingPublisher(date: startedAt.addingTimeInterval(item.timeRemaining)))
                     .frame(width: 64, alignment: .trailing)
             } else {
-                TimeIntervalEditor(timeInterval: $item.timeRemaining)
+                TimeIntervalEditor(timeInterval: $item.timeRemaining, selected: selected)
                     .frame(width: 64, height: nil, alignment: .trailing)
             }
+            if itemOrderDebugEnabled {
+                Text("\(item.index)")
+                    .frame(width: 24, height: nil, alignment: .center)
+                    .foregroundColor(Color.gray.opacity(0.5))
+            }
         }
-        .background(item.isPlaying ? Color.red : Color.white)
         .textFieldStyle(PlainTextFieldStyle())
         .onHover { (hover) in
             hovered = hover
@@ -59,4 +66,52 @@ struct ItemRow_Previews: PreviewProvider {
         }
         .previewLayout(.fixed(width: 300, height: 70))
     }
+}
+
+struct IRow : View {
+    @State var name: FakeItem
+    var body: some View {
+        
+        ItemRow(item: $name) {
+            PlayPauseView(kind: .constant(.pause), action: {  })
+        }
+    }
+}
+struct ISelectionDemo : View {
+    @State var selectKeeper = Set<String>()
+    
+    var body: some View {
+        
+        HStack {
+            List(selection: $selectKeeper){
+                ForEach(fakeItemData, id: \.id) { name in
+                    IRow(name: name)
+                }
+            }.frame(width: 500, height: 460)
+        }
+    }
+}
+
+#if DEBUG
+struct ix_Previews: PreviewProvider {
+    static var previews: some View {
+        ISelectionDemo()
+    }
+}
+#endif
+
+extension EnvironmentValues {
+    var itemOrderDebugEnabled: Bool {
+        get {
+            return self[ItemOrderDebugEnabledKey.self]
+        }
+        set {
+            self[ItemOrderDebugEnabledKey.self] = newValue
+        }
+    }
+}
+
+struct ItemOrderDebugEnabledKey : EnvironmentKey {
+
+    static let defaultValue: Bool = false
 }

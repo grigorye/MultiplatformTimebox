@@ -16,32 +16,60 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     
     let persistentContainer = newPersistentContainer()
     
+    var cancellables: [AnyCancellable] = []
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         
-        let itemProgressReporter = MenuBarItemProgressReporter()
+        try! persistentContainer.viewContext.setQueryGenerationFrom(.current)
+
+        let eventPublisher = PassthroughSubject<BusinessLogicEvent, Never>()
         
         let businessLogicController = BusinessLogicController(
             persistentContainer: persistentContainer,
-            started: itemProgressReporter.startedItem,
-            stopped: itemProgressReporter.stoppedItem
+            track: eventPublisher.send
         )
         
+        let undoManager = persistentContainer.viewContext.undoManager!
+        let undoController = UndoController(undoManager: undoManager)
+        eventPublisher
+            .sink(receiveValue: undoController.receive)
+            .store(in: &cancellables)
+
         try! businessLogicController.appDidFinishLaunching()
         
-        let contentView = BoundMainContentView(businessLogicController: businessLogicController)
+        #if true
+        let menuBarContentView =
+            RunningItemProgressView()
             .environment(\.managedObjectContext, persistentContainer.viewContext)
+
+        addMenuBarOverlayWindow(rootView: menuBarContentView)
+        #endif
         
+        let mainContentView = BoundMainContentView(delegate: businessLogicController)
+            .environment(\.managedObjectContext, persistentContainer.viewContext)
+
+        addMainWindow(rootView: mainContentView)
+    }
+    
+    private func addMainWindow<Content>(rootView: Content) where Content : View {
         let window = newMainWindow()
         window.delegate = self
-        window.contentView = NSHostingView(rootView: contentView)
+        let rootViewWithHostingWindow = rootView.environment(\.hostingWindow, { [weak window] in window })
+        window.contentView = NSHostingView(rootView: rootViewWithHostingWindow)
         window.center()
         window.makeKeyAndOrderFront(nil)
+    }
+    
+    private func addMenuBarOverlayWindow<Content>(rootView: Content) where Content : View {
+        let window = newMenuBarOverlayWindow()
+        window.contentView = NSHostingView(rootView: rootView)
+        window.orderFrontRegardless()
     }
     
     // MARK: - Core Data Saving and Undo support
     
     func windowWillReturnUndoManager(_ window: NSWindow) -> UndoManager? {
-        dump(persistentContainer.viewContext.undoManager)
+        persistentContainer.viewContext.undoManager
     }
     
     func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
@@ -87,5 +115,3 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         return .terminateNow
     }
 }
-
-extension BusinessLogicController: MainContentViewDelegate {}

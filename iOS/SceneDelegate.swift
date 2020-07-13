@@ -18,14 +18,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let businessLogicController = BusinessLogicController(
             persistentContainer: persistentContainer,
-            started: { print("Started \($0)") },
-            stopped: { print("Stopped \($0)") }
+            track: { print("Event: \($0)") }
         )
         
         try! businessLogicController.appDidFinishLaunching()
         
+        #if false
+        let glueBundleURL = Bundle.main.builtInPlugInsURL!.appendingPathComponent("MenuBarProgress.bundle")
+        let glueBundle = Bundle(url: glueBundleURL)!
+        glueBundle.load()
+        #endif
+        
         let contentView =
-            BoundMainContentView(businessLogicController: businessLogicController)
+            BoundMainContentView(delegate: businessLogicController)
             .environment(\.managedObjectContext, persistentContainer.viewContext)
         
         if let windowScene = scene as? UIWindowScene {
@@ -49,5 +54,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
 }
-
-extension BusinessLogicController : MainContentViewDelegate {}

@@ -21,8 +21,8 @@ struct MultiplatformTimeboxApp: App {
         
         let businessLogicController = BusinessLogicController(
             persistentContainer: persistentContainer,
-            started: { print("Started \($0)") },
-            stopped: { print("Stopped \($0)") }
+            starting: { print("Started \($0)") },
+            stopping: { print("Stopped \($0)") }
         )
 
         return WindowGroup {

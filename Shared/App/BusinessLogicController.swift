@@ -13,16 +13,20 @@ struct BusinessLogicController {
     typealias VItem = CDItem
     
     let persistentContainer: NSPersistentContainer
-    let started: (CDItem) -> Void
-    let stopped: (CDItem) -> Void
+    let track: (BusinessLogicEvent) -> Void
     
     func appDidFinishLaunching() throws {
         if let runningItem = try currentlyRunningItem() {
-            started(runningItem)
+            track(.started(runningItem))
         }
     }
     
     func sync() throws {
+        track(.syncingItems)
+        defer {
+            track(.syncedItems)
+        }
+        
         let fetchRequest = CDItem.fetchRequestForManualOrder()
         let snapshot: [CDItem] = try context.fetch(fetchRequest)
         
@@ -34,6 +38,11 @@ struct BusinessLogicController {
     }
     
     func start(_ item: CDItem) throws {
+        track(.starting(item))
+        defer {
+            track(.started(item))
+        }
+        
         if let currentlyRunningItem = try currentlyRunningItem() {
             try stop(currentlyRunningItem)
         }
@@ -41,10 +50,15 @@ struct BusinessLogicController {
         item.cd_startedAt = Date()
         try save(item)
         
-        started(item)
+        assert(try! currentlyRunningItem() == item)
     }
     
     func stop(_ item: CDItem) throws {
+        track(.stopping(item))
+        defer {
+            track(.stopped(item))
+        }
+
         guard let cd_startedAt = item.cd_startedAt else {
             return assertionFailure()
         }
@@ -53,19 +67,91 @@ struct BusinessLogicController {
         item.cd_previouslyLogged += -cd_startedAt.timeIntervalSinceNow
         try save(item)
         
-        stopped(item)
+        assert(try! currentlyRunningItem() == nil)
     }
     
     func addNewItem() throws {
-        let item = try MultiplatformTimebox.addNewItem(persistentContainer: persistentContainer)
+        track(.addingItem)
+        defer {
+            track(.added(item))
+        }
+
+        let item = CDItem(context: context)
+        
+        let existingCount = try CDManualOrder(context.count(for: CDItem.fetchRequest()))
+        
+        item.cd_title = "Item \(existingCount)"
+        item.cd_duration = .random(in: 0...100)
+        item.cd_manualOrder = existingCount
         try save(item)
     }
     
-    func currentlyRunningItem() throws -> CDItem? {
-        try runningItems(persistentContainer: self.persistentContainer).first
+    func moveItems(from indices: IndexSet, to offset: Int) throws {
+        track(.movingItems(from: indices, to: offset))
+        defer {
+            track(.movedItems(from: indices, to: offset))
+        }
+        try performOnSnapshot { (snapshot) in
+            snapshot.reverse()
+            snapshot.move(fromOffsets: indices, toOffset: offset)
+            snapshot.reverse()
+        }
     }
     
-    func performOnSnapshot(_ action: (inout [CDItem]) throws -> Void) throws {
+    func deleteItems(at indices: IndexSet) throws {
+        try performOnSnapshot { (snapshot) in
+            let items = indices.map { snapshot[$0] }
+            try delete(items)
+        }
+    }
+    
+    func deleteItems(withIDs ids: Set<CDItem.ID>) throws {
+        track(.deletingItems(ids.count))
+        defer {
+            track(.deletedItems(ids.count))
+        }
+        guard let persistentStoreCoordinator = context.persistentStoreCoordinator else {
+            fatalError()
+        }
+        let items: [CDItem] = ids.map { id in
+            guard let uri = URL(string: id) else {
+                fatalError()
+            }
+            guard let objectID = persistentStoreCoordinator.managedObjectID(forURIRepresentation: uri) else {
+                fatalError()
+            }
+            let item = context.object(with: objectID) as! CDItem
+            return item
+        }
+        try delete(items)
+    }
+
+    func delete(_ item: CDItem) throws {
+        track(.deleting(item))
+        defer {
+            track(.deletedItem)
+        }
+        try delete([item])
+    }
+
+    func save() throws {
+        #if os(macOS)
+        if !context.commitEditing() {
+            NSLog("\(#function) unable to commit editing before saving")
+        }
+        #endif
+        try context.save()
+    }
+    
+    // MARK: -
+    
+    private func currentlyRunningItem() throws -> CDItem? {
+        let items = try context.fetch(CDItem.fetchRequestForCurrentlyRunningItems())
+        assert(items.count <= 1)
+        return items.first
+    }
+    
+    private func performOnSnapshot(_ action: (inout [CDItem]) throws -> Void) throws {
         let snapshot: [CDItem] = try {
             let fetchRequest = CDItem.fetchRequestForManualOrder()
             var snapshot: [CDItem] = try context.fetch(fetchRequest)
@@ -82,35 +168,21 @@ struct BusinessLogicController {
         try save()
 
     }
-    func moveItems(from indices: IndexSet, to offset: Int) throws {
-        try performOnSnapshot { (snapshot) in
-            snapshot.move(fromOffsets: indices, toOffset: offset)
+    
+    private func save(_ item: CDItem) throws {
+        try save()
+    }
+    
+    private func delete(_ items: [CDItem]) throws {
+        for item in items {
+            item.cd_deleted = true
         }
-    }
-    
-    func save(_ item: CDItem) throws {
         try save()
-    }
-    
-    func delete(_ item: CDItem) throws {
-        item.cd_deleted = true
-        try save()
-        context.delete(item)
-        try save()
-    }
-    
-    func deleteItems(at indices: IndexSet) throws {
-        try performOnSnapshot { (snapshot) in
-            for i in indices.sorted(by: >) {
-                let item = snapshot[i]
-                item.cd_deleted = true
-            }
-        }
         
         try vacuum()
     }
-    
-    func vacuum() throws {
+
+    private func vacuum() throws {
         let fetchRequest: NSFetchRequest<CDItem> = CDItem.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: #keyPath(CDItem.cd_deleted) + " == TRUE")
         
@@ -121,15 +193,6 @@ struct BusinessLogicController {
         try context.save()
     }
 
-    func save() throws {
-        #if os(macOS)
-        if !context.commitEditing() {
-            NSLog("\(#function) unable to commit editing before saving")
-        }
-        #endif
-        try context.save()
-    }
-    
     private var context: NSManagedObjectContext {
         persistentContainer.viewContext
     }

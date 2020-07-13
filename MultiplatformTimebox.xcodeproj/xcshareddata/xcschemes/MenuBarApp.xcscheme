@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A1B6EB1D24A4EC150008D87B"
-               BuildableName = "MultiplatformTimebox.app"
-               BlueprintName = "macOS"
+               BlueprintIdentifier = "C45CAC9C24BACCB000D0214F"
+               BuildableName = "MenuBarApp.app"
+               BlueprintName = "MenuBarApp"
                ReferencedContainer = "container:MultiplatformTimebox.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,16 +28,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A1B6EB3024A4EC160008D87B"
-               BuildableName = "Tests macOS.xctest"
-               BlueprintName = "Tests macOS"
-               ReferencedContainer = "container:MultiplatformTimebox.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -54,22 +44,12 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A1B6EB1D24A4EC150008D87B"
-            BuildableName = "MultiplatformTimebox.app"
-            BlueprintName = "macOS"
+            BlueprintIdentifier = "C45CAC9C24BACCB000D0214F"
+            BuildableName = "MenuBarApp.app"
+            BlueprintName = "MenuBarApp"
             ReferencedContainer = "container:MultiplatformTimebox.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <CommandLineArguments>
-         <CommandLineArgument
-            argument = "-com.apple.CoreData.CloudKitDebug 0"
-            isEnabled = "YES">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "-com.apple.CoreData.Logging.stderr 0"
-            isEnabled = "YES">
-         </CommandLineArgument>
-      </CommandLineArguments>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -81,9 +61,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A1B6EB1D24A4EC150008D87B"
-            BuildableName = "MultiplatformTimebox.app"
-            BlueprintName = "macOS"
+            BlueprintIdentifier = "C45CAC9C24BACCB000D0214F"
+            BuildableName = "MenuBarApp.app"
+            BlueprintName = "MenuBarApp"
             ReferencedContainer = "container:MultiplatformTimebox.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

@@ -7,14 +7,19 @@
 
 import SwiftUI
 
-struct BoundMainContentView : View {
+struct BoundMainContentView<Delegate> : View
+where
+    Delegate: MainContentViewDelegate,
+    Delegate.VItem == CDItem,
+    Delegate.Item == CDItem
+{
     
-    let businessLogicController: BusinessLogicController
+    let delegate: Delegate
     
     @FetchRequest(fetchRequest: CDItem.fetchRequestForManualOrder(ascending: false)/*, animation: .default*/)
     var items: FetchedResults<CDItem>
     
     var body: some View {
-        newMainContentView(items: items, delegate: businessLogicController)
+        newMainContentView(items: items, delegate: delegate)
     }
 }

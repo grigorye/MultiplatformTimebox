@@ -8,16 +8,20 @@
 import SwiftUI
 
 protocol ItemListDelegate {
+    associatedtype Item: Identifiable
+    
     func moveItems(from indices: IndexSet, to offset: Int) throws
     func deleteItems(at indices: IndexSet) throws
+    func deleteItems(withIDs: Set<Item.ID>) throws
 }
 
-struct ItemList<VItem, Data, Delegate>: View
+struct ItemList<VItem, Data, Delegate> : View
 where
     VItem: Item,
     Data: RandomAccessCollection,
     Data.Element == VItem,
-    Delegate: ItemListDelegate
+    Delegate: ItemListDelegate,
+    Delegate.Item == Data.Element
 {
     
     let items: Data
@@ -39,10 +43,11 @@ where
     let delegate: Delegate?
     
     var body: some View {
-        reorderableItemList {
+        let list = List(selection: $selectedItems) {
             ForEach(items) { (item) in
                 ItemRow(
                     item: .constant(item),
+                    selected: selectedItems.contains(item.id),
                     hoveredView: {
                         if item.isPlaying {
                             PlayPauseView(kind: .constant(.pause), action: { pause(item) })
@@ -52,27 +57,32 @@ where
                     }
                 )
             }
+            .onMove { (indices, offset) in
+                try! delegate?.moveItems(from: indices, to: offset)
+            }
+            .onDelete { (indices) in
+                try! delegate?.deleteItems(at: indices)
+            }
         }
+        
+        #if os(macOS)
+        let platformList = list
+            .onDeleteCommand {
+                try! delegate?.deleteItems(withIDs: selectedItems)
+            }
+        #else
+        let platformList = list
+        #endif
+        
+        return platformList
     }
     
     // MARK: - Reordering
     
-    @State private var selectedItem: VItem?
-    
-    func reorderableItemList<Content: DynamicViewContent>(@ViewBuilder content: () -> Content) -> some View {
-        List(selection: $selectedItem) {
-            content()
-                .onMove { (indices, offset) in
-                    try! delegate?.moveItems(from: indices, to: offset)
-                }
-                .onDelete { (indices) in
-                    try! delegate?.deleteItems(at: indices)
-                }
-        }
-    }
+    @State private var selectedItems = Set<VItem.ID>()
 }
 
-struct FakeContentView : View {
+private struct FakeContentView : View {
     @State var items: [FakeItem] = fakeItemData
     
     var body: some View {
@@ -88,11 +98,14 @@ struct ItemList_Previews: PreviewProvider {
 }
 
 private struct FakeItemListDelegate: ItemListDelegate {
-    typealias VItem = FakeItem
+    typealias Item = FakeItem
     
     func moveItems(from indices: IndexSet, to offset: Int) throws {
     }
     
     func deleteItems(at indices: IndexSet) throws {
+    }
+    
+    func deleteItems(withIDs: Set<Item.ID>) throws {
     }
 }

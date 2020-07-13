@@ -12,6 +12,10 @@ typealias CDManualOrder = Int16
 
 extension CDItem : Item {
 
+    public var id: String {
+        objectID.uriRepresentation().absoluteString
+    }
+    
     var startedAt: Date? {
         cd_startedAt
     }

@@ -16,4 +16,13 @@ extension CDItem {
         ]
         return fetchRequest
     }
+    
+    @nonobjc public class func fetchRequestForCurrentlyRunningItems(ascending: Bool = true) -> NSFetchRequest<CDItem> {
+        let fetchRequest: NSFetchRequest<CDItem> = CDItem.fetchRequest()
+        fetchRequest.sortDescriptors = [
+            NSSortDescriptor(key: #keyPath(cd_manualOrder), ascending: ascending)
+        ]
+        fetchRequest.predicate = NSPredicate(format: #keyPath(CDItem.cd_startedAt) + " != nil")
+        return fetchRequest
+    }
 }

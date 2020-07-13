@@ -18,21 +18,20 @@ struct Knob<Content: View> : View {
         self.content = content()
     }
 
-    #if os(OSX)
     var body: some View {
         ZStack {
-            Image(nsImage: NSImage(named: "x")!)
+            placeholderView
                 .resizable()
                 .frame(width: 32, height: 32, alignment: .center)
             self.content
         }
     }
-    #else
-    var body: some View {
-        EmptyView()
-    }
-    #endif
 
+#if os(OSX)
+    private let placeholderView = Image(nsImage: NSImage())
+#else
+    private let placeholderView = Image(uiImage: UIImage())
+#endif
 }
 
 struct Knob_Previews: PreviewProvider {

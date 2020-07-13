@@ -1,5 +1,5 @@
 //
-//  MainContentView.swift
+//  ListView.swift
 //  MultiplatformTimebox
 //
 //  Created by Grigory Entin on 05/07/2020.
@@ -18,9 +18,10 @@ func newListView<Data, Delegate>(items: Data, delegate: Delegate) -> some View
 where
     Data: RandomAccessCollection,
     Delegate: MainContentViewDelegate,
-    Delegate.VItem == Data.Element
+    Delegate.VItem == Data.Element,
+    Delegate.Item == Data.Element
 {
-    #if os(macOS)
+    #if false // os(macOS)
     return ManuallyReorderableItemList(
         items: items,
         play: { try delegate.start($0) },

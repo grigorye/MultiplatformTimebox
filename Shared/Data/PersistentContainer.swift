@@ -25,23 +25,3 @@ func newPersistentContainer() -> NSPersistentCloudKitContainer {
     
     return container
 }
-
-func addNewItem(persistentContainer: NSPersistentContainer) throws -> CDItem {
-    let newItem = CDItem(context: persistentContainer.viewContext)
-    
-    let existingCount = try CDManualOrder(persistentContainer.viewContext.count(for: CDItem.fetchRequest()))
-    
-    newItem.cd_title = "Item \(existingCount)"
-    newItem.cd_duration = .random(in: 0...100)
-    newItem.cd_manualOrder = existingCount
-    
-    return newItem
-}
-
-func runningItems(persistentContainer: NSPersistentContainer) throws -> [CDItem] {
-    let fetchRequest: NSFetchRequest<CDItem> = CDItem.fetchRequest()
-    fetchRequest.predicate = NSPredicate(format: #keyPath(CDItem.cd_startedAt) + " != nil")
-    let items: [CDItem] = try
-        persistentContainer.viewContext.fetch(fetchRequest)
-    return items
-}

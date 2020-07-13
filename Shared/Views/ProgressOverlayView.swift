@@ -16,8 +16,8 @@ struct ProgressOverlayView : View {
     var body: some View {
         GeometryReader { metrics in
             HStack(spacing: 0) {
-                Color.red
-                    .opacity(0.3)
+                Color.accentColor
+                    .opacity(0.4)
                     .frame(width: metrics.size.width * CGFloat(progress))
                 Color.clear
                     .frame(width: metrics.size.width * CGFloat(1 - progress))
