@@ -45,15 +45,15 @@ where
     var body: some View {
         let list = List(selection: $selectedItems) {
             ForEach(items) { (item) in
+                let selected = selectedItems.contains(item.id)
                 ItemRow(
                     item: .constant(item),
-                    selected: selectedItems.contains(item.id),
                     hoveredView: {
-                        if item.isPlaying {
-                            PlayPauseView(kind: .constant(.pause), action: { pause(item) })
-                        } else {
-                            PlayPauseView(kind: .constant(.play), action: { play(item) })
-                        }
+                        PlayPauseView(
+                            kind: .constant(item.isPlaying ? .pause : .play),
+                            action: { item.isPlaying ? pause(item) : play(item) }
+                        )
+                        .foregroundColor(selected ? nil : .accentColor)
                     }
                 )
             }
