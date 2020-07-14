@@ -80,8 +80,8 @@ struct BusinessLogicController {
         
         let existingCount = try CDManualOrder(context.count(for: CDItem.fetchRequest()))
         
-        item.cd_title = "Item \(existingCount)"
-        item.cd_duration = .random(in: 0...100)
+        item.title = "Item \(existingCount)"
+        item.timeRemaining = TimeInterval(30 * 60)
         item.cd_manualOrder = existingCount
         try save(item)
     }
