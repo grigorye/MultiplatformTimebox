@@ -13,12 +13,9 @@ struct TimeIntervalEditor : View {
     
     @State private var timeIntervalString: String = ""
 
-    var selected: Bool = false
-
     var body: some View {
         SelectableTextField(
             text: $timeIntervalString,
-            selected: selected,
             onCommit: {
                 timeInterval = timeIntervalFromString(timeIntervalString)
             }

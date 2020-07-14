@@ -17,13 +17,11 @@ struct ItemRow<VItem: Item, HoveredView: View> : View {
     @Environment(\.itemOrderDebugEnabled)
     var itemOrderDebugEnabled: Bool
     
-    let selected: Bool
     let hoveredView: HoveredView
     
-    init(item: Binding<VItem>, selected: Bool = false, @ViewBuilder hoveredView: @escaping () -> HoveredView) {
+    init(item: Binding<VItem>, @ViewBuilder hoveredView: @escaping () -> HoveredView) {
         self._item = item
         self.hoveredView = hoveredView()
-        self.selected = selected
     }
     
     var body: some View {
@@ -33,14 +31,14 @@ struct ItemRow<VItem: Item, HoveredView: View> : View {
                     hoveredView
                 }
             }
-            SelectableTextField(text: $item.title, selected: selected)
+            SelectableTextField(text: $item.title)
             Text(stringFromTimeInterval(item.previouslyLogged))
                 .frame(width: 64, height: nil, alignment: .trailing)
             if let startedAt = item.startedAt {
                 TimeIntervalView(timeIntervalPublisher: newTimeRemainingPublisher(date: startedAt.addingTimeInterval(item.timeRemaining)))
                     .frame(width: 64, alignment: .trailing)
             } else {
-                TimeIntervalEditor(timeInterval: $item.timeRemaining, selected: selected)
+                TimeIntervalEditor(timeInterval: $item.timeRemaining)
                     .frame(width: 64, height: nil, alignment: .trailing)
             }
             if itemOrderDebugEnabled {

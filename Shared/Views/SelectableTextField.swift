@@ -13,7 +13,6 @@ import Introspect
 struct SelectableTextField : View {
 
     @Binding var text: String
-    let selected: Bool
     var onCommit: () -> Void = {}
 
     #if !os(macOS)
