@@ -42,7 +42,7 @@ struct UndoController {
         
         case .stopping(let item):
             let now = momentFormatter.string(from: Date())
-            return String(localized: "Stop '\(item.title)' at \(now))")
+            return String(localized: "Stop '\(item.title)' at \(now)")
         case .stopped:
             return nil
         
