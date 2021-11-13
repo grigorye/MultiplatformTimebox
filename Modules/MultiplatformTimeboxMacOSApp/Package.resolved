@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "SwiftTrace",
+        "repositoryURL": "https://github.com/johnno1962/SwiftTrace",
+        "state": {
+          "branch": null,
+          "revision": "d3de2551a4dd447d67d933506fdaac0146dfb59c",
+          "version": "6.5.0"
+        }
+      },
+      {
         "package": "Introspect",
         "repositoryURL": "https://github.com/timbersoftware/SwiftUI-Introspect",
         "state": {

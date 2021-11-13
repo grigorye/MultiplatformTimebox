@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C45CAC9C24BACCB000D0214F"
-               BuildableName = "MenuBarApp.app"
-               BlueprintName = "MenuBarApp"
+               BuildableName = "MultiplatformTimebox-MenuBar.app"
+               BlueprintName = "macOS-menuBarApp"
                ReferencedContainer = "container:MultiplatformTimebox.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C45CAC9C24BACCB000D0214F"
-            BuildableName = "MenuBarApp.app"
-            BlueprintName = "MenuBarApp"
+            BuildableName = "MultiplatformTimebox-MenuBar.app"
+            BlueprintName = "macOS-menuBarApp"
             ReferencedContainer = "container:MultiplatformTimebox.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C45CAC9C24BACCB000D0214F"
-            BuildableName = "MenuBarApp.app"
-            BlueprintName = "MenuBarApp"
+            BuildableName = "MultiplatformTimebox-MenuBar.app"
+            BlueprintName = "macOS-menuBarApp"
             ReferencedContainer = "container:MultiplatformTimebox.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
