@@ -1,10 +1,3 @@
-//
-//  MenuBarOverlayWindow.swift
-//  macOS
-//
-//  Created by Grigory Entin on 12/07/2020.
-//
-
 import AppKit
 
 public func newMenuBarOverlayWindow() -> NSWindow {

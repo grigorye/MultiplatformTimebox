@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  Catalyst
-//
-//  Created by Grigory Entin on 04/07/2020.
-//
-
 import SwiftUI
 
 struct ContentView: View {

@@ -1,10 +1,3 @@
-//
-//  ItemView.swift
-//  Timebox
-//
-//  Created by Grigorii Entin on 24/06/2020.
-//
-
 import TimeboxData
 import SwiftUI
 import Foundation

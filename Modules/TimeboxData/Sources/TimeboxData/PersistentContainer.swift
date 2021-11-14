@@ -1,10 +1,3 @@
-//
-//  PersistentContainer.swift
-//  Timebox
-//
-//  Created by Grigorii Entin on 29/06/2020.
-//
-
 import CoreData
 
 public func newPersistentContainer() -> NSPersistentCloudKitContainer {

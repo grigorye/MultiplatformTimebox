@@ -1,10 +1,3 @@
-//
-//  CDItem+ManualOrder.swift
-//  Timebox
-//
-//  Created by Grigory Entin on 06/07/2020.
-//
-
 import CoreData
 
 extension CDItem {

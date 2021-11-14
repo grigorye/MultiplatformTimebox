@@ -1,10 +1,3 @@
-//
-//  RunningItemsView.swift
-//  macOS
-//
-//  Created by Grigory Entin on 12/07/2020.
-//
-
 import SwiftUI
 
 public struct RunningItemProgressView : View {

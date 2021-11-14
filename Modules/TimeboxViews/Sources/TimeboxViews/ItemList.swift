@@ -1,10 +1,3 @@
-//
-//  ItemList.swift
-//  Timebox
-//
-//  Created by Grigorii Entin on 25/06/2020.
-//
-
 import TimeboxData
 import SwiftUI
 

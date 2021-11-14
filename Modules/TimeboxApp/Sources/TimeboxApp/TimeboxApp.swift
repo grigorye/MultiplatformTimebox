@@ -1,10 +1,3 @@
-//
-//  TimeboxApp.swift
-//  Shared
-//
-//  Created by Grigorii Entin on 25/06/2020.
-//
-
 import SwiftUI
 import CoreData
 

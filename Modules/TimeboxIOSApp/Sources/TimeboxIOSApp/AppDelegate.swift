@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  Timebox
-//
-//  Created by Grigorii Entin on 24/06/2020.
-//
-
 import UIKit
 import SwiftUI
 

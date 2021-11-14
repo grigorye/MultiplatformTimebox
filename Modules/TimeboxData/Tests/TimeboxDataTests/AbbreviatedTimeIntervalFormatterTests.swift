@@ -1,10 +1,3 @@
-//
-//  AbbreviatedTimeIntervalFormatterTests.swift
-//  Timebox
-//
-//  Created by Grigory Entin on 14/10/2020.
-//
-
 import XCTest
 @testable import TimeboxData
 

@@ -1,10 +1,3 @@
-//
-//  HostingWindow.swift
-//  Timebox
-//
-//  Created by Grigorii Entin on 13/07/2020.
-//
-
 import SwiftUI
 
 public struct HostingWindowKey: EnvironmentKey {

@@ -1,10 +1,3 @@
-//
-//  BusinessLogicController.swift
-//  Timebox
-//
-//  Created by Grigorii Entin on 05/07/2020.
-//
-
 import Foundation
 import CoreData
 

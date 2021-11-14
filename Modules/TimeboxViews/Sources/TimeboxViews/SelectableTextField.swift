@@ -1,10 +1,3 @@
-//
-//  SelectableTextField.swift
-//  Timebox
-//
-//  Created by Grigory Entin on 12/07/2020.
-//
-
 import SwiftUI
 #if os(macOS)
 import Introspect

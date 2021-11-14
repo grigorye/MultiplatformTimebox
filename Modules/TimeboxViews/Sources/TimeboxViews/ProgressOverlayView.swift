@@ -1,10 +1,3 @@
-//
-//  ProgressView.swift
-//  Timebox
-//
-//  Created by Grigorii Entin on 05/07/2020.
-//
-
 import SwiftUI
 
 public typealias FractionCompleted = Double

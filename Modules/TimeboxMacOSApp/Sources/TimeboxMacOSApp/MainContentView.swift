@@ -1,10 +1,3 @@
-//
-//  MainContentView.swift
-//  macOS
-//
-//  Created by Grigory Entin on 12/07/2020.
-//
-
 import SwiftUI
 
 func newMainContentView<Data, Delegate>(items: Data, delegate: Delegate) -> some View

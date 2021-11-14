@@ -1,10 +1,3 @@
-//
-//  MainWindow.swift
-//  Timebox/iOS
-//
-//  Created by Grigory Entin on 05/07/2020.
-//
-
 import TimeboxViews
 import SwiftUI
 

@@ -1,10 +1,3 @@
-//
-//  MainWindow.swift
-//  Timebox
-//
-//  Created by Grigory Entin on 05/07/2020.
-//
-
 import AppKit
 
 func newMainWindow() -> NSWindow {

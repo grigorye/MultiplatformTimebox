@@ -1,10 +1,3 @@
-//
-//  ParsingTimeInterval.swift
-//  Timebox
-//
-//  Created by Grigory Entin on 04/07/2020.
-//
-
 import Foundation
 
 public func timeIntervalFromString(_ timeString: String) -> TimeInterval {

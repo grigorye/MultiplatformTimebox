@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  Catalyst
-//
-//  Created by Grigory Entin on 04/07/2020.
-//
-
 import TimeboxData
 import TimeboxApp
 import UIKit

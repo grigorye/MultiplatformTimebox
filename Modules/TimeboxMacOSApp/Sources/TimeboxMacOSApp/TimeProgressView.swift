@@ -1,10 +1,3 @@
-//
-//  TimeProgressView.swift
-//  macOS
-//
-//  Created by Grigory Entin on 12/07/2020.
-//
-
 import SwiftUI
 import Combine
 

@@ -1,10 +1,3 @@
-//
-//  UndoController.swift
-//  Timebox
-//
-//  Created by Grigory Entin on 12/07/2020.
-//
-
 import Foundation.NSUndoManager
 
 public struct UndoController {

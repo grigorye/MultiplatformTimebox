@@ -1,10 +1,3 @@
-//
-//  ManuallyReorderableItemRow.swift
-//  Timebox
-//
-//  Created by Grigory Entin on 06/07/2020.
-//
-
 import TimeboxData
 import SwiftUI
 import Foundation

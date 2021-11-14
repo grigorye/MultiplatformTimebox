@@ -1,10 +1,3 @@
-//
-//  Knob.swift
-//  Timebox
-//
-//  Created by Grigorii Entin on 03/07/2020.
-//
-
 import SwiftUI
 #if os(OSX)
 import AppKit.NSImage

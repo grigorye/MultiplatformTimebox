@@ -1,10 +1,3 @@
-//
-//  TimeRemainingView.swift
-//  Timebox
-//
-//  Created by Grigorii Entin on 05/07/2020.
-//
-
 import TimeboxData
 import SwiftUI
 import Combine

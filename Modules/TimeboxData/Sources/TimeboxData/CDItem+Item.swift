@@ -1,10 +1,3 @@
-//
-//  CDItem+Item.swift
-//  Timebox
-//
-//  Created by Grigory Entin on 04/07/2020.
-//
-
 import Foundation
 
 typealias CDTimeInterval = Double
