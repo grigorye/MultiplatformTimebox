@@ -1,4 +1,4 @@
-import MultiplatformTimeboxIOSApp
+import TimeboxIOSApp
 
 @UIApplicationMain
-class AppDelegate : MultiplatformTimeboxIOSApp.AppDelegate {}
+class AppDelegate : TimeboxIOSApp.AppDelegate {}

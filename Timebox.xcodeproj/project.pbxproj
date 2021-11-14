@@ -1,0 +1,602 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0610C9F38B0464B24C1514FE /* TimeboxMacOSApp in Frameworks */ = {isa = PBXBuildFile; productRef = 110C7D17ED946185A7D37869 /* TimeboxMacOSApp */; };
+		165D519ACD61528EF230125D /* Bundle+macOS-app.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBA91E8BD09DDC688652D89 /* Bundle+macOS-app.swift */; };
+		2D8E09F83D089F3B075CEDAB /* SFSymbols.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F51127333F0AF2BEFA1552A0 /* SFSymbols.xcassets */; };
+		30C029298F03CB1548BD12D8 /* AppDelegate-macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD090DFCDBE899605D3EEA0 /* AppDelegate-macOS.swift */; };
+		3CE214DD75E2EA75696F69C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3EA8D8CE42B2F6066D08847 /* Main.storyboard */; };
+		405170225900BF748D5F4493 /* AppDelegate-iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411FECF4C647E11D7B4BA5D1 /* AppDelegate-iOS.swift */; };
+		9D40AF4A02368E746D6648FC /* TimeboxIOSApp in Frameworks */ = {isa = PBXBuildFile; productRef = 9142474C51F4E44817F4FA46 /* TimeboxIOSApp */; };
+		9D58C281D1715644E5C83138 /* Bundle+iOS-app.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545C6776AE5652D0B0D60619 /* Bundle+iOS-app.swift */; };
+		B9253FA02FB38A32A4EE72C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42EBBF00D9A85B4EDFA70F2D /* Assets.xcassets */; };
+		F3002EADB02A4D53DCF12E47 /* SFSymbols.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F51127333F0AF2BEFA1552A0 /* SFSymbols.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		55C6D259020C71CCDBEF96F8 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		770DD175D88EB8F62326F1D4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		07A6F28C5F0D8F58473C696E /* TimeboxIOSApp */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TimeboxIOSApp; path = Modules/TimeboxIOSApp; sourceTree = "<group>"; };
+		27D0A0F8FA5217CD2E47D846 /* App-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "App-iOS.entitlements"; sourceTree = "<group>"; };
+		2EBA0A33ED28C04E1F2685E2 /* TimeboxMacOSApp */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TimeboxMacOSApp; path = Modules/TimeboxMacOSApp; sourceTree = "<group>"; };
+		31345EAED3263A14D718A363 /* App-macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "App-macOS.entitlements"; sourceTree = "<group>"; };
+		411FECF4C647E11D7B4BA5D1 /* AppDelegate-iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate-iOS.swift"; sourceTree = "<group>"; };
+		42EBBF00D9A85B4EDFA70F2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		545C6776AE5652D0B0D60619 /* Bundle+iOS-app.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+iOS-app.swift"; sourceTree = "<group>"; };
+		741E00559AD73798F1418957 /* Info-macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Info-macOS.plist"; sourceTree = "<group>"; };
+		9FBA91E8BD09DDC688652D89 /* Bundle+macOS-app.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+macOS-app.swift"; sourceTree = "<group>"; };
+		ACD090DFCDBE899605D3EEA0 /* AppDelegate-macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate-macOS.swift"; sourceTree = "<group>"; };
+		B2E74140B21B6344E57085DC /* Timebox_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timebox_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B46B2DA8AD4ABA9846FFF3FF /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Info-iOS.plist"; sourceTree = "<group>"; };
+		D1B5DF016F6BF288E4AB7CE6 /* Timebox_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timebox_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3EA8D8CE42B2F6066D08847 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		F51127333F0AF2BEFA1552A0 /* SFSymbols.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SFSymbols.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		07F27C75BDD14041194361BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D40AF4A02368E746D6648FC /* TimeboxIOSApp in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61FF16806BF088DF30E5D30A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0610C9F38B0464B24C1514FE /* TimeboxMacOSApp in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0F3D8926ADBF3EA6C8186645 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		45C511BEE0263509F773BFCD /* TimeboxMacOSApp */ = {
+			isa = PBXGroup;
+			children = (
+				D3EA8D8CE42B2F6066D08847 /* Main.storyboard */,
+			);
+			path = TimeboxMacOSApp;
+			sourceTree = "<group>";
+		};
+		4943750423D93DE9F065987B = {
+			isa = PBXGroup;
+			children = (
+				DDF3AABFBD9C1F6ED0DC89CB /* Project */,
+				0F3D8926ADBF3EA6C8186645 /* Frameworks */,
+				984E4436CDE2DF06C9998AF0 /* Products */,
+				2EBA0A33ED28C04E1F2685E2 /* TimeboxMacOSApp */,
+				07A6F28C5F0D8F58473C696E /* TimeboxIOSApp */,
+			);
+			sourceTree = "<group>";
+		};
+		675BD3775ED77DAEE84C166F /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				8A0A7FFD3E7D0494EDCAD4AA /* TimeboxMacOSApp */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		8A0A7FFD3E7D0494EDCAD4AA /* TimeboxMacOSApp */ = {
+			isa = PBXGroup;
+			children = (
+				C2A25C48DB4377F5EF233C4E /* Sources */,
+			);
+			path = TimeboxMacOSApp;
+			sourceTree = "<group>";
+		};
+		984E4436CDE2DF06C9998AF0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D1B5DF016F6BF288E4AB7CE6 /* Timebox_iOS.app */,
+				B2E74140B21B6344E57085DC /* Timebox_macOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9BE7E9B5599C441B8B4BCF0F /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				42EBBF00D9A85B4EDFA70F2D /* Assets.xcassets */,
+				F51127333F0AF2BEFA1552A0 /* SFSymbols.xcassets */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		A9265E8022CC33C3217F765A /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				27D0A0F8FA5217CD2E47D846 /* App-iOS.entitlements */,
+				31345EAED3263A14D718A363 /* App-macOS.entitlements */,
+				411FECF4C647E11D7B4BA5D1 /* AppDelegate-iOS.swift */,
+				ACD090DFCDBE899605D3EEA0 /* AppDelegate-macOS.swift */,
+				B46B2DA8AD4ABA9846FFF3FF /* Info-iOS.plist */,
+				741E00559AD73798F1418957 /* Info-macOS.plist */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		BDAEEFB403E8492CB9DD7E95 /* Derived */ = {
+			isa = PBXGroup;
+			children = (
+				FD839638A720C98827025040 /* Sources */,
+			);
+			path = Derived;
+			sourceTree = "<group>";
+		};
+		C2A25C48DB4377F5EF233C4E /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				45C511BEE0263509F773BFCD /* TimeboxMacOSApp */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		DDF3AABFBD9C1F6ED0DC89CB /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				BDAEEFB403E8492CB9DD7E95 /* Derived */,
+				675BD3775ED77DAEE84C166F /* Modules */,
+				9BE7E9B5599C441B8B4BCF0F /* Shared */,
+				A9265E8022CC33C3217F765A /* Sources */,
+			);
+			name = Project;
+			sourceTree = "<group>";
+		};
+		FD839638A720C98827025040 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				545C6776AE5652D0B0D60619 /* Bundle+iOS-app.swift */,
+				9FBA91E8BD09DDC688652D89 /* Bundle+macOS-app.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		14F498C7FC8A915B91E7F617 /* iOS-app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6D2DDDC0738FD5174DED07C4 /* Build configuration list for PBXNativeTarget "iOS-app" */;
+			buildPhases = (
+				B064AB2CE0DA463F0A1A7007 /* Sources */,
+				C2586BC734C3E45E2E351572 /* Resources */,
+				37CA9ECCFA81EBF2CDC4F6AE /* Embed Precompiled Frameworks */,
+				770DD175D88EB8F62326F1D4 /* Embed Frameworks */,
+				07F27C75BDD14041194361BB /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "iOS-app";
+			packageProductDependencies = (
+				9142474C51F4E44817F4FA46 /* TimeboxIOSApp */,
+			);
+			productName = Timebox_iOS;
+			productReference = D1B5DF016F6BF288E4AB7CE6 /* Timebox_iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AA0444708CDD5A82C546A1A7 /* macOS-app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6D99419D18D902D27354DC19 /* Build configuration list for PBXNativeTarget "macOS-app" */;
+			buildPhases = (
+				F4CCF377313741FC364EEDFB /* Sources */,
+				A520251EEB7895EF689C789A /* Resources */,
+				52216C1C887265AE23DA3032 /* Embed Precompiled Frameworks */,
+				55C6D259020C71CCDBEF96F8 /* Embed Frameworks */,
+				61FF16806BF088DF30E5D30A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "macOS-app";
+			packageProductDependencies = (
+				110C7D17ED946185A7D37869 /* TimeboxMacOSApp */,
+			);
+			productName = Timebox_macOS;
+			productReference = B2E74140B21B6344E57085DC /* Timebox_macOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		714355C15AAE56149B301C4D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Grigorii Entin";
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = 06083EECF62695773A57F083 /* Build configuration list for PBXProject "Timebox" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 4943750423D93DE9F065987B;
+			productRefGroup = 984E4436CDE2DF06C9998AF0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA0444708CDD5A82C546A1A7 /* macOS-app */,
+				14F498C7FC8A915B91E7F617 /* iOS-app */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A520251EEB7895EF689C789A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CE214DD75E2EA75696F69C9 /* Main.storyboard in Resources */,
+				F3002EADB02A4D53DCF12E47 /* SFSymbols.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2586BC734C3E45E2E351572 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9253FA02FB38A32A4EE72C9 /* Assets.xcassets in Resources */,
+				2D8E09F83D089F3B075CEDAB /* SFSymbols.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		37CA9ECCFA81EBF2CDC4F6AE /* Embed Precompiled Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Precompiled Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"Skipping, nothing to be embedded.\"";
+		};
+		52216C1C887265AE23DA3032 /* Embed Precompiled Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Precompiled Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"Skipping, nothing to be embedded.\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B064AB2CE0DA463F0A1A7007 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D58C281D1715644E5C83138 /* Bundle+iOS-app.swift in Sources */,
+				405170225900BF748D5F4493 /* AppDelegate-iOS.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4CCF377313741FC364EEDFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				165D519ACD61528EF230125D /* Bundle+macOS-app.swift in Sources */,
+				30C029298F03CB1548BD12D8 /* AppDelegate-macOS.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5AB00E6A597BDD60AD44C214 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9CB5F3CAE39626C1367F36CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/Sources/App-macOS.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 5BV57B67TB;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Sources/Info-macOS.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.grigorye.TimeboxApp;
+				PRODUCT_NAME = Timebox_macOS;
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.5.1;
+			};
+			name = Debug;
+		};
+		A9EFEED7ECBB4AF43C1BDFB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/Sources/App-iOS.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5BV57B67TB;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Sources/Info-iOS.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.grigorye.TimeboxApp;
+				PRODUCT_NAME = Timebox_iOS;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BE4F5ED39C29FDA511C8C9F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C9E901FC7AD20D9A2D531066 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/Sources/App-macOS.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 5BV57B67TB;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Sources/Info-macOS.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.grigorye.TimeboxApp;
+				PRODUCT_NAME = Timebox_macOS;
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.5.1;
+			};
+			name = Release;
+		};
+		E3A3D01A3308FF1FCDB7ABAB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/Sources/App-iOS.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5BV57B67TB;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Sources/Info-iOS.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.grigorye.TimeboxApp;
+				PRODUCT_NAME = Timebox_iOS;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		06083EECF62695773A57F083 /* Build configuration list for PBXProject "Timebox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE4F5ED39C29FDA511C8C9F0 /* Debug */,
+				5AB00E6A597BDD60AD44C214 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6D2DDDC0738FD5174DED07C4 /* Build configuration list for PBXNativeTarget "iOS-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9EFEED7ECBB4AF43C1BDFB6 /* Debug */,
+				E3A3D01A3308FF1FCDB7ABAB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6D99419D18D902D27354DC19 /* Build configuration list for PBXNativeTarget "macOS-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CB5F3CAE39626C1367F36CC /* Debug */,
+				C9E901FC7AD20D9A2D531066 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		110C7D17ED946185A7D37869 /* TimeboxMacOSApp */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TimeboxMacOSApp;
+		};
+		9142474C51F4E44817F4FA46 /* TimeboxIOSApp */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TimeboxIOSApp;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 714355C15AAE56149B301C4D /* Project object */;
+}

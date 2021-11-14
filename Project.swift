@@ -2,11 +2,11 @@ import ProjectDescription
 import ProjectDescriptionHelpers
 
 let project = Project(
-    name: "MultiplatformTimebox",
+    name: "Timebox",
     organizationName: "Grigorii Entin",
     packages: [
-        .local(path: "./Modules/MultiplatformTimeboxMacOSApp"),
-        .local(path: "./Modules/MultiplatformTimeboxIOSApp")
+        .local(path: "./Modules/TimeboxMacOSApp"),
+        .local(path: "./Modules/TimeboxIOSApp")
     ],
     targets: [
         Target(
@@ -20,12 +20,12 @@ let project = Project(
                 "Sources/*-macOS.swift"
             ],
             resources: [
-                "Modules/MultiplatformTimeboxMacOSApp/Sources/**/Main.storyboard",
+                "Modules/TimeboxMacOSApp/Sources/**/Main.storyboard",
                 "Shared/SFSymbols.xcassets"
             ],
             entitlements: "Sources/App-macOS.entitlements",
             dependencies: [
-                .package(product: "MultiplatformTimeboxMacOSApp")
+                .package(product: "TimeboxMacOSApp")
             ],
             settings: .settings(
                 base: [
@@ -51,7 +51,7 @@ let project = Project(
             ],
             entitlements: "Sources/App-iOS.entitlements",
             dependencies: [
-                .package(product: "MultiplatformTimeboxIOSApp")
+                .package(product: "TimeboxIOSApp")
             ],
             settings: .settings(
                 base: [

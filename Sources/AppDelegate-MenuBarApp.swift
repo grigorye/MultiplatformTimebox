@@ -1,4 +1,4 @@
-import MultiplatformTimeboxMenuBarApp
+import TimeboxMenuBarApp
 
 @NSApplicationMain
-class AppDelegate : MultiplatformTimeboxMenuBarApp.AppDelegate {}
+class AppDelegate : TimeboxMenuBarApp.AppDelegate {}

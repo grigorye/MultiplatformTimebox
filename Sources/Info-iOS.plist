@@ -32,7 +32,7 @@
 					<key>UISceneConfigurationName</key>
 					<string>Default Configuration</string>
 					<key>UISceneDelegateClassName</key>
-					<string>MultiplatformTimeboxIOSApp.SceneDelegate</string>
+					<string>TimeboxIOSApp.SceneDelegate</string>
 				</dict>
 			</array>
 		</dict>
