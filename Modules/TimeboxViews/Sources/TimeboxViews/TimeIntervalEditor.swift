@@ -1,7 +1,8 @@
 import TimeboxData
+import TimeFormatting
 import SwiftUI
 
-struct TimeIntervalEditor : View/*, TimeIntervalFormatting*/ {
+struct TimeIntervalEditor : View, TimeIntervalFormatting {
     
     @Binding var timeInterval: TimeInterval
     

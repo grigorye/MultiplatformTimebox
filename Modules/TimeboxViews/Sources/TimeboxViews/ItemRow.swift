@@ -1,8 +1,9 @@
 import TimeboxData
+import TimeFormatting
 import SwiftUI
 import Foundation
 
-struct ItemRow<VItem: Item, HoveredView: View> : View/*, TimeIntervalFormatting*/ {
+struct ItemRow<VItem: Item, HoveredView: View> : View, TimeIntervalFormatting {
     
     @Binding var item: VItem
     

@@ -1,5 +1,5 @@
 import XCTest
-@testable import TimeboxData
+@testable import TimeFormatting
 
 class AbbreviatedTimeIntervalFormatterTests : XCTestCase {
     

@@ -16,6 +16,7 @@ let package = Package(
     dependencies: [
         .package(name: "Introspect", url: "https://github.com/timbersoftware/SwiftUI-Introspect", from: "0.1.0"),
         .package(name: "TimeboxData", path: "../TimeboxData"),
+        .package(name: "TimeFormatting", path: "../TimeFormatting"),
     ],
     targets: [
         .target(
@@ -23,6 +24,7 @@ let package = Package(
             dependencies: [
                 .product(name: "Introspect", package: "Introspect", condition: .when(platforms: [.macOS])),
                 "TimeboxData",
+                "TimeFormatting",
             ]),
         .testTarget(
             name: "TimeboxViewsTests",

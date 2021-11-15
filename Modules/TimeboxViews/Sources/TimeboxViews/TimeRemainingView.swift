@@ -1,4 +1,5 @@
 import TimeboxData
+import TimeFormatting
 import SwiftUI
 import Combine
 
@@ -12,7 +13,7 @@ func newTimeRemainingPublisher(date: Date) -> AnyPublisher<TimeInterval, Timer.T
         .eraseToAnyPublisher()
 }
 
-struct TimeIntervalView : View/*, TimeIntervalFormatting*/ {
+struct TimeIntervalView : View, TimeIntervalFormatting {
     
     @State var timeInterval: TimeInterval = 0
     
