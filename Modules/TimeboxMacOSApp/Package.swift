@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "TimeboxMacOSApp",
-    platforms: [.macOS("10.15")],
+    platforms: [.macOS("12")],
     products: [
         .library(
             name: "TimeboxMacOSApp",
