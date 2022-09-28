@@ -13,6 +13,8 @@
 		30C029298F03CB1548BD12D8 /* AppDelegate-macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD090DFCDBE899605D3EEA0 /* AppDelegate-macOS.swift */; };
 		3CE214DD75E2EA75696F69C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3EA8D8CE42B2F6066D08847 /* Main.storyboard */; };
 		405170225900BF748D5F4493 /* AppDelegate-iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411FECF4C647E11D7B4BA5D1 /* AppDelegate-iOS.swift */; };
+		78769583F565F8CF48B69C9C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CDEE6876B5262DBD083D13B /* Media.xcassets */; };
+		8D4DE35EEA83E1DCCB701CBB /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CDEE6876B5262DBD083D13B /* Media.xcassets */; };
 		9D40AF4A02368E746D6648FC /* TimeboxIOSApp in Frameworks */ = {isa = PBXBuildFile; productRef = 9142474C51F4E44817F4FA46 /* TimeboxIOSApp */; };
 		9D58C281D1715644E5C83138 /* Bundle+iOS-app.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545C6776AE5652D0B0D60619 /* Bundle+iOS-app.swift */; };
 		B9253FA02FB38A32A4EE72C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42EBBF00D9A85B4EDFA70F2D /* Assets.xcassets */; };
@@ -47,6 +49,7 @@
 		27D0A0F8FA5217CD2E47D846 /* App-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "App-iOS.entitlements"; sourceTree = "<group>"; };
 		2EBA0A33ED28C04E1F2685E2 /* TimeboxMacOSApp */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TimeboxMacOSApp; path = Modules/TimeboxMacOSApp; sourceTree = "<group>"; };
 		31345EAED3263A14D718A363 /* App-macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "App-macOS.entitlements"; sourceTree = "<group>"; };
+		3CDEE6876B5262DBD083D13B /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		411FECF4C647E11D7B4BA5D1 /* AppDelegate-iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate-iOS.swift"; sourceTree = "<group>"; };
 		42EBBF00D9A85B4EDFA70F2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		545C6776AE5652D0B0D60619 /* Bundle+iOS-app.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+iOS-app.swift"; sourceTree = "<group>"; };
@@ -122,6 +125,14 @@
 			path = TimeboxMacOSApp;
 			sourceTree = "<group>";
 		};
+		8FAAEDBE7D4D0434EE09D56E /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				3CDEE6876B5262DBD083D13B /* Media.xcassets */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
 		984E4436CDE2DF06C9998AF0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +154,7 @@
 		A9265E8022CC33C3217F765A /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				8FAAEDBE7D4D0434EE09D56E /* Generated */,
 				27D0A0F8FA5217CD2E47D846 /* App-iOS.entitlements */,
 				31345EAED3263A14D718A363 /* App-macOS.entitlements */,
 				411FECF4C647E11D7B4BA5D1 /* AppDelegate-iOS.swift */,
@@ -272,6 +284,7 @@
 			files = (
 				3CE214DD75E2EA75696F69C9 /* Main.storyboard in Resources */,
 				F3002EADB02A4D53DCF12E47 /* SFSymbols.xcassets in Resources */,
+				8D4DE35EEA83E1DCCB701CBB /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +294,7 @@
 			files = (
 				B9253FA02FB38A32A4EE72C9 /* Assets.xcassets in Resources */,
 				2D8E09F83D089F3B075CEDAB /* SFSymbols.xcassets in Resources */,
+				78769583F565F8CF48B69C9C /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,7 +428,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.5.1;
+				SWIFT_VERSION = 5.7;
 			};
 			name = Debug;
 		};
@@ -440,7 +454,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.5.1;
+				SWIFT_VERSION = 5.7;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -525,7 +539,7 @@
 				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 5.5.1;
+				SWIFT_VERSION = 5.7;
 			};
 			name = Release;
 		};
@@ -550,7 +564,7 @@
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 5.5.1;
+				SWIFT_VERSION = 5.7;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

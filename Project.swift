@@ -20,8 +20,9 @@ let project = Project(
                 "Sources/*-macOS.swift"
             ],
             resources: [
+                "Sources/Generated/*.xcassets",
                 "Modules/TimeboxMacOSApp/Sources/**/Main.storyboard",
-                "Shared/SFSymbols.xcassets"
+                "Shared/SFSymbols.xcassets",
             ],
             entitlements: "Sources/App-macOS.entitlements",
             dependencies: [
@@ -46,8 +47,9 @@ let project = Project(
                 "Sources/*-iOS.swift"
             ],
             resources: [
+                "Sources/Generated/*.xcassets",
                 "Shared/SFSymbols.xcassets",
-                "Shared/Assets.xcassets"
+                "Shared/Assets.xcassets",
             ],
             entitlements: "Sources/App-iOS.entitlements",
             dependencies: [
