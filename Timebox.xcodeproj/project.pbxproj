@@ -413,7 +413,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 5BV57B67TB;
+				DEVELOPMENT_TEAM = 465NA5BW7E;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Sources/Info-macOS.plist";
@@ -421,7 +421,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.grigorye.TimeboxApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gentin.TimeboxApp;
 				PRODUCT_NAME = Timebox_macOS;
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = macosx;
@@ -439,7 +439,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/Sources/App-iOS.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5BV57B67TB;
+				DEVELOPMENT_TEAM = 465NA5BW7E;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Sources/Info-iOS.plist";
@@ -447,7 +447,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.grigorye.TimeboxApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gentin.TimeboxApp;
 				PRODUCT_NAME = Timebox_iOS;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
@@ -525,7 +525,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 5BV57B67TB;
+				DEVELOPMENT_TEAM = 465NA5BW7E;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Sources/Info-macOS.plist";
@@ -533,7 +533,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.grigorye.TimeboxApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gentin.TimeboxApp;
 				PRODUCT_NAME = Timebox_macOS;
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = macosx;
@@ -550,7 +550,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/Sources/App-iOS.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5BV57B67TB;
+				DEVELOPMENT_TEAM = 465NA5BW7E;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Sources/Info-iOS.plist";
@@ -558,7 +558,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.grigorye.TimeboxApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gentin.TimeboxApp;
 				PRODUCT_NAME = Timebox_iOS;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";

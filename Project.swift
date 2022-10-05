@@ -14,7 +14,7 @@ let project = Project(
             platform: .macOS,
             product: .app,
             productName: "Timebox_macOS",
-            bundleId: "com.grigorye.TimeboxApp",
+            bundleId: "com.gentin.TimeboxApp",
             infoPlist: "Sources/Info-macOS.plist",
             sources: [
                 "Sources/*-macOS.swift"
@@ -32,7 +32,7 @@ let project = Project(
                 base: [
                     "ENABLE_HARDENED_RUNTIME": "YES"
                 ]
-                    .automaticCodeSigning(devTeam: "5BV57B67TB")
+                    .automaticCodeSigning(devTeam: "465NA5BW7E")
                     .codeSignIdentityAppleDevelopment()
             )
         ),
@@ -41,7 +41,7 @@ let project = Project(
             platform: .iOS,
             product: .app,
             productName: "Timebox_iOS",
-            bundleId: "com.grigorye.TimeboxApp",
+            bundleId: "com.gentin.TimeboxApp",
             infoPlist: "Sources/Info-iOS.plist",
             sources: [
                 "Sources/*-iOS.swift"
@@ -59,7 +59,7 @@ let project = Project(
                 base: [
                     "ENABLE_HARDENED_RUNTIME": "YES"
                 ]
-                    .automaticCodeSigning(devTeam: "5BV57B67TB")
+                    .automaticCodeSigning(devTeam: "465NA5BW7E")
                     .codeSignIdentityAppleDevelopment()
             )
         )

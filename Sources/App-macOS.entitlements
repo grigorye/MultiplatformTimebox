@@ -6,7 +6,7 @@
 	<string>development</string>
 	<key>com.apple.developer.icloud-container-identifiers</key>
 	<array>
-		<string>iCloud.com.grigorye.Timebox</string>
+		<string>iCloud.com.gentin.Timebox</string>
 	</array>
 	<key>com.apple.developer.icloud-services</key>
 	<array>
