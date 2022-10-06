@@ -8,6 +8,11 @@ let project = Project(
         .local(path: "./Modules/TimeboxMacOSApp"),
         .local(path: "./Modules/TimeboxIOSApp")
     ],
+    settings: .settings(
+        base: [
+            "BUNDLE_VERSION": "1"
+        ]
+    ),
     targets: [
         Target(
             name: "macOS-app",
