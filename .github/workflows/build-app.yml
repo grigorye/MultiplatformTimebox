@@ -1,0 +1,70 @@
+name: build-app
+
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+    inputs:
+      build-config:
+        type: choice
+        description: build-config
+        options:
+          - app-store
+          - developer-id
+        required: true
+      bundle-version:
+        type: string
+        description: bundle-version
+        required: false
+
+defaults:
+  run:
+    shell: bash --noprofile --norc -x -euo pipefail {0}
+
+jobs:
+  build-app:
+    strategy:
+      matrix:
+        build-config:
+          - name: 'AppStore'
+            if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.build-config == 'app-store' }}
+            projectKind: 'AppStore'
+            destination: 'generic/platform=macOS'
+            scheme: 'macOS-app'
+            uploadType: 'macos'
+            packageExtension: '.pkg'
+            exportOptionsPlist: 'dist/appstore-exportOptions.plist'
+          - name: 'DeveloperID'
+            if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.build-config == 'developer-id' }}
+            projectKind: 'DeveloperID'
+            destination: 'generic/platform=macOS'
+            scheme: 'macOS-app'
+            uploadType: 'macos'
+            packageExtension: '.pkg'
+            exportOptionsPlist: 'dist/developer-id-exportOptions.plist'
+          - name: 'iOS'
+            if: ${{ true }}
+            projectKind: 'AppStore'
+            destination: 'generic/platform=iOS'
+            scheme: 'iOS-app'
+            uploadType: 'ios'
+            packageExtension: '.ipa'
+            exportOptionsPlist: 'dist/appstore-exportOptions.plist'
+
+    name: ${{ matrix.build-config.name }}
+    uses: grigorye/ReusableWorkflows/.github/workflows/build-app-reusable.yml@ea18991314f86e6581223b42d1e768a80a88cf2d
+    with:
+      if: ${{ matrix.build-config.if }}
+      scheme: ${{ matrix.build-config.scheme }}
+      destination: ${{ matrix.build-config.destination }}
+      uploadType: ${{ matrix.build-config.uploadType }}
+      packageExtension: ${{ matrix.build-config.packageExtension }}
+      xcodebuildProjectOrWorkspace: '-project Timebox.xcodeproj'
+      buildConfigName: ${{ matrix.build-config.name }}
+      projectKind: ${{ matrix.build-config.projectKind }}
+      exportOptionsPlist: ${{ matrix.build-config.exportOptionsPlist }}
+      bundleVersion: ${{ github.event.inputs.bundle-version }}
+    secrets: inherit
