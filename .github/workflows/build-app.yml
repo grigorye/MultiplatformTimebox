@@ -1,10 +1,8 @@
 name: build-app
 
 on:
-  push:
-    branches:
-      - master
   pull_request:
+    types: [opened, synchronize, reopened, labeled]
     branches: [master]
   workflow_dispatch:
     inputs:
@@ -20,6 +18,7 @@ on:
 jobs:
   build:
     name: 'App'
+    if: contains(github.event.pull_request.labels.*.name, 'ready to go')
     uses: grigorye/ReusableWorkflows/.github/workflows/build-app-generic.yml@4391946b0d291b749328083f7ee3cc3f6355a89b
     with:
       macos-app-scheme: 'macOS-app'
