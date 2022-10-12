@@ -3,68 +3,26 @@ name: build-app
 on:
   push:
     branches:
-    - master
+      - master
   pull_request:
-    branches: [ master ]
+    branches: [master]
   workflow_dispatch:
     inputs:
-      build-config:
+      build-configs:
         type: choice
-        description: build-config
+        description: build-configs
         options:
-          - app-store
-          - developer-id
+          - "['app-store']"
+          - "['developer-id']"
+          - "['ios']"
         required: true
-      bundle-version:
-        type: string
-        description: bundle-version
-        required: false
-
-defaults:
-  run:
-    shell: bash --noprofile --norc -x -euo pipefail {0}
 
 jobs:
-  build-app:
-    strategy:
-      matrix:
-        build-config:
-          - name: 'AppStore'
-            if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.build-config == 'app-store' }}
-            projectKind: 'AppStore'
-            destination: 'generic/platform=macOS'
-            scheme: 'macOS-app'
-            uploadType: 'macos'
-            packageExtension: '.pkg'
-            exportOptionsPlist: 'dist/appstore-exportOptions.plist'
-          - name: 'DeveloperID'
-            if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.build-config == 'developer-id' }}
-            projectKind: 'DeveloperID'
-            destination: 'generic/platform=macOS'
-            scheme: 'macOS-app'
-            uploadType: 'macos'
-            packageExtension: '.pkg'
-            exportOptionsPlist: 'dist/developer-id-exportOptions.plist'
-          - name: 'iOS'
-            if: ${{ true }}
-            projectKind: 'AppStore'
-            destination: 'generic/platform=iOS'
-            scheme: 'iOS-app'
-            uploadType: 'ios'
-            packageExtension: '.ipa'
-            exportOptionsPlist: 'dist/appstore-exportOptions.plist'
-
-    name: ${{ matrix.build-config.name }}
-    uses: grigorye/ReusableWorkflows/.github/workflows/build-app-reusable.yml@c7545a0c6edf58aa21ddd3c179e6da1c40837b0d
+  build:
+    name: 'App'
+    uses: grigorye/ReusableWorkflows/.github/workflows/build-app-generic.yml@4391946b0d291b749328083f7ee3cc3f6355a89b
     with:
-      if: ${{ matrix.build-config.if }}
-      scheme: ${{ matrix.build-config.scheme }}
-      destination: ${{ matrix.build-config.destination }}
-      uploadType: ${{ matrix.build-config.uploadType }}
-      packageExtension: ${{ matrix.build-config.packageExtension }}
-      xcodebuildProjectOrWorkspace: '-project Timebox.xcodeproj'
-      buildConfigName: ${{ matrix.build-config.name }}
-      projectKind: ${{ matrix.build-config.projectKind }}
-      exportOptionsPlist: ${{ matrix.build-config.exportOptionsPlist }}
-      bundleVersion: ${{ github.event.inputs.bundle-version }}
+      macos-app-scheme: 'macOS-app'
+      ios-app-scheme: 'iOS-app'
+      build-configs: ${{ github.event.inputs.build-configs }}
     secrets: inherit
