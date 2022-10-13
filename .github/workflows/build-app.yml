@@ -10,9 +10,9 @@ on:
         type: choice
         description: build-configs
         options:
-          - "['app-store']"
-          - "['developer-id']"
-          - "['ios']"
+          - '[\"app-store\"]'
+          - '[\"developer-id\"]'
+          - '[\"ios\"]'
         required: false
 
 jobs:
