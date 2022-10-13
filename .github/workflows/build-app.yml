@@ -1,10 +1,8 @@
 name: build-app
 
 on:
-  push:
-    branches:
-      - master
   pull_request:
+    types: [opened, synchronize, reopened, labeled]
     branches: [master]
   workflow_dispatch:
     inputs:
@@ -12,15 +10,16 @@ on:
         type: choice
         description: build-configs
         options:
-          - "['app-store']"
-          - "['developer-id']"
-          - "['ios']"
-        required: true
+          - '[\"app-store\"]'
+          - '[\"developer-id\"]'
+          - '[\"ios\"]'
+        required: false
 
 jobs:
   build:
     name: 'App'
-    uses: grigorye/ReusableWorkflows/.github/workflows/build-app-generic.yml@4391946b0d291b749328083f7ee3cc3f6355a89b
+    if: contains(github.event.pull_request.labels.*.name, 'ready to go') || github.event_name == 'workflow_dispatch'
+    uses: grigorye/ReusableWorkflows/.github/workflows/build-app-generic.yml@v1
     with:
       macos-app-scheme: 'macOS-app'
       ios-app-scheme: 'iOS-app'
