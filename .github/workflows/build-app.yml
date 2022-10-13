@@ -19,7 +19,7 @@ jobs:
   build:
     name: 'App'
     if: contains(github.event.pull_request.labels.*.name, 'ready to go')
-    uses: grigorye/ReusableWorkflows/.github/workflows/build-app-generic.yml@4391946b0d291b749328083f7ee3cc3f6355a89b
+    uses: grigorye/ReusableWorkflows/.github/workflows/build-app-generic.yml@v1
     with:
       macos-app-scheme: 'macOS-app'
       ios-app-scheme: 'iOS-app'
