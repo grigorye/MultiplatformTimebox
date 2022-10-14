@@ -11,7 +11,8 @@ let project = Project(
     settings: .settings(
         base: [
             "BUNDLE_VERSION": "1",
-            "MARKETING_VERSION": "0.1.2",
+            "MARKETING_PATCH_VERSION": "2",
+            "MARKETING_VERSION": "0.1.$(MARKETING_PATCH_VERSION)",
         ]
     ),
     targets: [
