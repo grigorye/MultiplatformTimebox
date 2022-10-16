@@ -53,13 +53,13 @@
 		411FECF4C647E11D7B4BA5D1 /* AppDelegate-iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate-iOS.swift"; sourceTree = "<group>"; };
 		42EBBF00D9A85B4EDFA70F2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		545C6776AE5652D0B0D60619 /* Bundle+iOS-app.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+iOS-app.swift"; sourceTree = "<group>"; };
+		5FDEA35B8B27ACDBC930E41C /* Timebox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timebox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		741E00559AD73798F1418957 /* Info-macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Info-macOS.plist"; sourceTree = "<group>"; };
 		9FBA91E8BD09DDC688652D89 /* Bundle+macOS-app.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+macOS-app.swift"; sourceTree = "<group>"; };
 		ACD090DFCDBE899605D3EEA0 /* AppDelegate-macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate-macOS.swift"; sourceTree = "<group>"; };
-		B2E74140B21B6344E57085DC /* Timebox_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timebox_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B46B2DA8AD4ABA9846FFF3FF /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Info-iOS.plist"; sourceTree = "<group>"; };
-		D1B5DF016F6BF288E4AB7CE6 /* Timebox_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timebox_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3EA8D8CE42B2F6066D08847 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		F277BE276C67B632B94395C6 /* Timebox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timebox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F51127333F0AF2BEFA1552A0 /* SFSymbols.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SFSymbols.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,8 +136,8 @@
 		984E4436CDE2DF06C9998AF0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D1B5DF016F6BF288E4AB7CE6 /* Timebox_iOS.app */,
-				B2E74140B21B6344E57085DC /* Timebox_macOS.app */,
+				5FDEA35B8B27ACDBC930E41C /* Timebox.app */,
+				F277BE276C67B632B94395C6 /* Timebox.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -222,8 +222,8 @@
 			packageProductDependencies = (
 				9142474C51F4E44817F4FA46 /* TimeboxIOSApp */,
 			);
-			productName = Timebox_iOS;
-			productReference = D1B5DF016F6BF288E4AB7CE6 /* Timebox_iOS.app */;
+			productName = Timebox;
+			productReference = 5FDEA35B8B27ACDBC930E41C /* Timebox.app */;
 			productType = "com.apple.product-type.application";
 		};
 		AA0444708CDD5A82C546A1A7 /* macOS-app */ = {
@@ -244,8 +244,8 @@
 			packageProductDependencies = (
 				110C7D17ED946185A7D37869 /* TimeboxMacOSApp */,
 			);
-			productName = Timebox_macOS;
-			productReference = B2E74140B21B6344E57085DC /* Timebox_macOS.app */;
+			productName = Timebox;
+			productReference = F277BE276C67B632B94395C6 /* Timebox.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -425,7 +425,7 @@
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gentin.TimeboxApp;
-				PRODUCT_NAME = Timebox_macOS;
+				PRODUCT_NAME = Timebox;
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -451,7 +451,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gentin.TimeboxApp;
-				PRODUCT_NAME = Timebox_iOS;
+				PRODUCT_NAME = Timebox;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -540,7 +540,7 @@
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gentin.TimeboxApp;
-				PRODUCT_NAME = Timebox_macOS;
+				PRODUCT_NAME = Timebox;
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -565,7 +565,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gentin.TimeboxApp;
-				PRODUCT_NAME = Timebox_iOS;
+				PRODUCT_NAME = Timebox;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_COMPILATION_MODE = wholemodule;

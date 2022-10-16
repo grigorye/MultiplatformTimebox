@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AA0444708CDD5A82C546A1A7"
-               BuildableName = "Timebox_macOS.app"
+               BuildableName = "Timebox.app"
                BlueprintName = "macOS-app"
                ReferencedContainer = "container:Timebox.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AA0444708CDD5A82C546A1A7"
-            BuildableName = "Timebox_macOS.app"
+            BuildableName = "Timebox.app"
             BlueprintName = "macOS-app"
             ReferencedContainer = "container:Timebox.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AA0444708CDD5A82C546A1A7"
-            BuildableName = "Timebox_macOS.app"
+            BuildableName = "Timebox.app"
             BlueprintName = "macOS-app"
             ReferencedContainer = "container:Timebox.xcodeproj">
          </BuildableReference>
