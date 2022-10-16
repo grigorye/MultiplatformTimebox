@@ -12,7 +12,7 @@ let project = Project(
         base: [
             "BUNDLE_VERSION": "1",
             "MARKETING_PATCH_VERSION": "2",
-            "MARKETING_VERSION": "0.1.$(MARKETING_PATCH_VERSION)",
+            "MARKETING_VERSION": "0.1",
         ]
     ),
     targets: [
