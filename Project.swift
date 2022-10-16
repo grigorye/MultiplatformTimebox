@@ -20,7 +20,7 @@ let project = Project(
             name: "macOS-app",
             platform: .macOS,
             product: .app,
-            productName: "Timebox_macOS",
+            productName: "Timebox",
             bundleId: "com.gentin.TimeboxApp",
             infoPlist: "Sources/Info-macOS.plist",
             sources: [
@@ -47,7 +47,7 @@ let project = Project(
             name: "iOS-app",
             platform: .iOS,
             product: .app,
-            productName: "Timebox_iOS",
+            productName: "Timebox",
             bundleId: "com.gentin.TimeboxApp",
             infoPlist: "Sources/Info-iOS.plist",
             sources: [
