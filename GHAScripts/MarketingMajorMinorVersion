@@ -1,0 +1,8 @@
+#! /bin/bash
+
+set -x
+set -euo pipefail
+
+ver=$(sed -n 's/^.*"MARKETING_VERSION": "\(.*\)",$/\1/p' Project.swift)
+
+echo "$ver"
