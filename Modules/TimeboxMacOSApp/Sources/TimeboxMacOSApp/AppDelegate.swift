@@ -1,6 +1,5 @@
 import Cocoa
 import SwiftUI
-import Combine
 
 open class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     
@@ -8,24 +7,21 @@ open class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     
     let persistentContainer = newPersistentContainer()
     
-    var cancellables: [AnyCancellable] = []
-    
     public func applicationDidFinishLaunching(_ aNotification: Notification) {
         
         try! persistentContainer.viewContext.setQueryGenerationFrom(.current)
-
-        let eventPublisher = PassthroughSubject<BusinessLogicEvent, Never>()
-        
-        let businessLogicController = BusinessLogicController(
-            persistentContainer: persistentContainer,
-            track: eventPublisher.send
-        )
         
         let undoManager = persistentContainer.viewContext.undoManager!
         let undoController = UndoController(undoManager: undoManager)
-        eventPublisher
-            .sink(receiveValue: undoController.receive)
-            .store(in: &cancellables)
+
+        let eventPublisher: (BusinessLogicEvent) -> Void = {
+            undoController.receive($0)
+        }
+        
+        let businessLogicController = BusinessLogicController(
+            persistentContainer: persistentContainer,
+            track: eventPublisher
+        )
 
         try! businessLogicController.appDidFinishLaunching()
         

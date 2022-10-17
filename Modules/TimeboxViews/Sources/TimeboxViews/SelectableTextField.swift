@@ -4,17 +4,17 @@ import Introspect
 #endif
 
 struct SelectableTextField : View {
-
+    
     @Binding var text: String
     var onCommit: () -> Void = {}
-
-    #if !os(macOS)
+    
+#if !os(macOS)
     
     var body: some View {
         TextField("", text: $text, onCommit: onCommit)
     }
     
-    #else
+#else
     
     @Environment(\.hostingWindow)
     private var hostingWindow: () -> NSWindow?
@@ -43,7 +43,7 @@ struct SelectableTextField : View {
         }
     }
     
-    #endif
+#endif
 }
 
 

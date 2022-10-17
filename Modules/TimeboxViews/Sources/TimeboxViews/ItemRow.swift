@@ -27,6 +27,9 @@ struct ItemRow<VItem: Item, HoveredView: View> : View, TimeIntervalFormatting {
                 }
             }
             SelectableTextField(text: $item.title)
+                .fixedSize()
+            Spacer()
+                .frame(maxWidth: .infinity)
             Text(stringFromTimeInterval(item.previouslyLogged))
                 .frame(width: 64, height: nil, alignment: .trailing)
             if let startedAt = item.startedAt {
@@ -105,6 +108,6 @@ extension EnvironmentValues {
 }
 
 struct ItemOrderDebugEnabledKey : EnvironmentKey {
-
+    
     static let defaultValue: Bool = false
 }

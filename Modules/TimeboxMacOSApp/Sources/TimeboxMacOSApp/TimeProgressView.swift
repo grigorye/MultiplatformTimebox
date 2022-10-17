@@ -1,25 +1,41 @@
 import SwiftUI
-import Combine
+
+actor TimeProgressModel {
+    @State private var progress: FractionCompleted = 0
+}
+
+func timeBasedProgressGenerator(startedAt: Date, timeInterval: TimeInterval, now: @escaping () -> Date) -> FractionCompleted {
+    now().timeIntervalSince(startedAt) / timeInterval
+}
 
 struct TimeProgressView : View {
     
-    private var progressPublisher: AnyPublisher<FractionCompleted, Timer.TimerPublisher.Failure>
-    @State private var progress: FractionCompleted = 0
+    let progressNow: () -> FractionCompleted
     
-    init(startedAt: Date, timeInterval: TimeInterval) {
-        progressPublisher = Timer.publish(every: 0.1, on: .main, in: .common)
-            .autoconnect()
-            .map { (date) -> FractionCompleted in
-                date.timeIntervalSince(startedAt) / timeInterval
-            }
-            .eraseToAnyPublisher()
+    @State private var progress: FractionCompleted = 0
+
+    init(startedAt: Date, timeInterval: TimeInterval, now: @escaping () -> Date = { Date() }) {
+        self.progressNow = {
+            timeBasedProgressGenerator(startedAt: startedAt, timeInterval: timeInterval, now: now)
+        }
     }
     
     var body: some View {
         ProgressOverlayView(progress: $progress)
-            .onReceive(progressPublisher) {
-                progress = $0
+            .task {
+                while !Task.isCancelled {
+                    progress = progressNow()
+                    try? await Task.sleep(timeInterval: 0.1)
+                }
             }
-            .animation(.default)
+            .animation(.default, value: progress)
+    }
+}
+
+extension Task where Success == Never, Failure == Never {
+    
+    static func sleep(timeInterval: TimeInterval) async throws {
+        let duration = UInt64(timeInterval * 1_000_000_000)
+        try await Task.sleep(nanoseconds: duration)
     }
 }

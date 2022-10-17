@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "TimeboxViews",
     platforms: [
-        .macOS(.v10_15),
+        .macOS(.v11),
         .iOS("13.4"),
     ],
     products: [
