@@ -26,7 +26,7 @@ jobs:
     name: 'App'
     needs: [paths-filter]
     if: github.event_name != 'pull_request' || (github.event.pull_request.draft == false && needs.paths-filter.outputs.should_build == 'true')
-    uses: grigorye/ReusableWorkflows/.github/workflows/build-app-generic.yml@v3
+    uses: grigorye/ReusableWorkflows/.github/workflows/build-app-generic.yml@v5
     with:
       macos-app-scheme: 'macOS-app'
       ios-app-scheme: 'iOS-app'
