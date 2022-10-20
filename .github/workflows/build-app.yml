@@ -20,7 +20,7 @@ on:
 jobs:
   build:
     name: 'App'
-    if: contains(github.event.pull_request.labels.*.name, 'ready to go') || github.event_name != 'pull_request'
+    if: github.event.pull_request.draft == false || github.event_name != 'pull_request'
     uses: grigorye/ReusableWorkflows/.github/workflows/build-app-generic.yml@v3
     with:
       macos-app-scheme: 'macOS-app'
