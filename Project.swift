@@ -1,6 +1,9 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
+let bundleIdPrefix = "com.gentin"
+let devTeam = "465NA5BW7E"
+
 let project = Project(
     name: "Timebox",
     organizationName: "Grigorii Entin",
@@ -21,7 +24,7 @@ let project = Project(
             platform: .macOS,
             product: .app,
             productName: "Timebox",
-            bundleId: "com.gentin.TimeboxApp",
+            bundleId: "\(bundleIdPrefix).TimeboxApp",
             infoPlist: "Sources/Info-macOS.plist",
             sources: [
                 "Sources/*-macOS.swift"
@@ -39,7 +42,7 @@ let project = Project(
                 base: [
                     "ENABLE_HARDENED_RUNTIME": "YES"
                 ]
-                    .automaticCodeSigning(devTeam: "465NA5BW7E")
+                    .automaticCodeSigning(devTeam: devTeam)
                     .codeSignIdentityAppleDevelopment()
             )
         ),
@@ -48,7 +51,7 @@ let project = Project(
             platform: .iOS,
             product: .app,
             productName: "Timebox",
-            bundleId: "com.gentin.TimeboxApp",
+            bundleId: "\(bundleIdPrefix).TimeboxApp",
             infoPlist: "Sources/Info-iOS.plist",
             sources: [
                 "Sources/*-iOS.swift"
@@ -66,7 +69,7 @@ let project = Project(
                 base: [
                     "ENABLE_HARDENED_RUNTIME": "YES"
                 ]
-                    .automaticCodeSigning(devTeam: "465NA5BW7E")
+                    .automaticCodeSigning(devTeam: devTeam)
                     .codeSignIdentityAppleDevelopment()
             )
         )
