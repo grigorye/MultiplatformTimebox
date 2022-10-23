@@ -19,10 +19,11 @@ on:
 
 jobs:
   jobs-filter:
+    name: Filter Jobs
     uses: ./.github/workflows/jobs-filter.yml
 
   build-app:
-    name: App
+    name: Build App
     needs: [jobs-filter]
     if: needs.jobs-filter.outputs.should-build-app == 'true'
     uses: grigorye/ReusableWorkflows/.github/workflows/build-app-generic.yml@v5
