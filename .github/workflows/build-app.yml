@@ -21,14 +21,6 @@ jobs:
   jobs-filter:
     uses: ./.github/workflows/jobs-filter.yml
 
-  report-jobs-filter:
-    needs: jobs-filter
-    runs-on: ubuntu-latest
-    steps:
-      - name: Report jobs-filter
-        run: |
-          echo "jobs-filter.outputs.should-build-app: ${{ needs.jobs-filter.outputs.should-build-app }}"
-
   build-app:
     name: App
     needs: [jobs-filter]
