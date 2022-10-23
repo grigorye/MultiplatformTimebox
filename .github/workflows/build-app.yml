@@ -42,7 +42,7 @@ jobs:
 
   finalize-build-app:
     name: Finalize App Build
-    if: ${{ always() && needs.jobs-filter.outputs.skipped-build-app-result == 'success' }}
+    if: always() && needs.jobs-filter.outputs.should-finalize-build-app == 'true'
     needs: [jobs-filter, build-app]
     runs-on: ubuntu-latest
     steps:
@@ -50,8 +50,8 @@ jobs:
         if: ${{ !(needs.jobs-filter.outputs.should-build-app == 'true') && !(needs.jobs-filter.outputs.should-build-app == 'false') }}
         run:
           exit 1
-      - name: Check sanity for skipped-build-app-result
-        if: ${{ !(needs.jobs-filter.outputs.skipped-build-app-result == 'succeeded') && !(needs.jobs-filter.outputs.skipped-build-app-result == 'skipped') }}
+      - name: Check sanity for should-finalize-build-app
+        if: ${{ !(needs.jobs-filter.outputs.should-finalize-build-app == 'true') && !(needs.jobs-filter.outputs.should-finalize-build-app == 'true') }}
         run:
           exit 1
       - name: Check required build results
@@ -61,4 +61,4 @@ jobs:
       - name: Report success for skipped build
         if: needs.jobs-filter.outputs.should-build-app == 'false'
         run: |
-          [ "${{ needs.jobs-filter.outputs.skipped-build-app-result }}" == "success" ]
+          echo "Build is not required!"
