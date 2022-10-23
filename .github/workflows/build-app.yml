@@ -53,4 +53,4 @@ jobs:
       - name: Report success for skipped build
         if: needs.jobs-filter.outputs.should-build-app == 'false'
         run: |
-          echo 'No build required.'
+          [ "${{ needs.jobs-filter.outputs.skipped-build-app-result }}" == "success" ]

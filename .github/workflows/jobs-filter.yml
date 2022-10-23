@@ -6,6 +6,9 @@ on:
       should-build-app:
         description: 'Whether to build-app or not.'
         value: ${{ github.event.pull_request.draft != true && jobs.paths-filter.outputs.should-build != 'false' }}
+      skipped-build-app-result:
+        description: 'Result for skipped build-app.'
+        value: ${{ github.event.pull_request.draft == true && 'skipped' || 'success' }}
 
 jobs:
   paths-filter:
