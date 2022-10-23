@@ -42,7 +42,7 @@ jobs:
 
   finalize-build-app:
     name: Finalize App Build
-    if: always()
+    if: ${{ always() && needs.jobs-filter.outputs.skipped-build-app-result == 'success' }}
     needs: [jobs-filter, build-app]
     runs-on: ubuntu-latest
     steps:
