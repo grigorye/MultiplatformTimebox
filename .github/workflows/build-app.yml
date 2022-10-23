@@ -18,16 +18,16 @@ on:
         required: false
 
 jobs:
-  paths-filter:
-    uses: ./.github/workflows/paths-filter.yml
+  jobs-filter:
+    uses: ./.github/workflows/jobs-filter.yml
 
-  build:
-    name: 'App'
-    needs: [paths-filter]
-    if: github.event_name != 'pull_request' || (github.event.pull_request.draft == false && needs.paths-filter.outputs.should_build == 'true')
+  build-app:
+    name: App
+    needs: [jobs-filter]
+    if: needs.jobs-filter.outputs.should-build-app == 'true'
     uses: grigorye/ReusableWorkflows/.github/workflows/build-app-generic.yml@v5
     with:
-      macos-app-scheme: 'macOS-app'
-      ios-app-scheme: 'iOS-app'
+      macos-app-scheme: macOS-app
+      ios-app-scheme: iOS-app
       build-configs: ${{ github.event.inputs.build-configs }}
     secrets: inherit
