@@ -46,6 +46,14 @@ jobs:
     needs: [jobs-filter, build-app]
     runs-on: ubuntu-latest
     steps:
+      - name: Check sanity for should-build-app
+        if: ${{ !(needs.jobs-filter.outputs.should-build-app == 'true') && !(needs.jobs-filter.outputs.should-build-app == 'false') }}
+        run:
+          exit 1
+      - name: Check sanity for skipped-build-app-result
+        if: ${{ !(needs.jobs-filter.outputs.skipped-build-app-result == 'succeeded') && !(needs.jobs-filter.outputs.skipped-build-app-result == 'skipped') }}
+        run:
+          exit 1
       - name: Check required build results
         if: needs.jobs-filter.outputs.should-build-app == 'true'
         run: |
