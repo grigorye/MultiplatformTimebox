@@ -11,7 +11,12 @@ let package = Package(
     products: [
         .library(
             name: "TimeboxViews",
-            targets: ["TimeboxViews"]),
+            targets: ["TimeboxViews"]
+        ),
+        .library(
+            name: "TimeboxPreviews",
+            targets: ["TimeboxPreviews"]
+        ),
     ],
     dependencies: [
         .package(name: "Introspect", url: "https://github.com/timbersoftware/SwiftUI-Introspect", from: "0.1.0"),
@@ -26,6 +31,12 @@ let package = Package(
                 "TimeboxData",
                 "TimeFormatting",
             ]),
+        .target(
+            name: "TimeboxPreviews",
+            dependencies: [
+                "TimeboxViews"
+            ]
+        ),
         .testTarget(
             name: "TimeboxViewsTests",
             dependencies: ["TimeboxViews"]),

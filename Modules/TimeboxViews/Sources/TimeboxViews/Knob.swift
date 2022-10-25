@@ -26,12 +26,3 @@ struct Knob<Content: View> : View {
     private let placeholderView = Image(uiImage: UIImage())
 #endif
 }
-
-struct Knob_Previews: PreviewProvider {
-    static var previews: some View {
-        Knob {
-            EmptyView()
-        }
-        .previewLayout(.fixed(width: 300, height: 70))
-    }
-}
