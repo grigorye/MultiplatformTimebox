@@ -33,6 +33,7 @@ jobs:
               - 'GHAScripts/**'
               - 'GHAShortcuts/**'
               - 'Mintfile'
+              - 'Modules/**'
               - 'project.yml'
               - 'ReusableWorkflows/**'
               - 'Targets/**'
