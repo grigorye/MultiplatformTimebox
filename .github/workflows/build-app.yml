@@ -31,6 +31,7 @@ jobs:
       macos-app-scheme: macOS-app
       ios-app-scheme: iOS-app
       build-configs: ${{ github.event.inputs.build-configs }}
+      runs-on: macos-12
     secrets: inherit
 
   finalize-build-app:
