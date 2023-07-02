@@ -1,0 +1,105 @@
+name: Timebox
+
+aggregateTargets:
+  TimeboxAll:
+    targets:
+      - macOS-app
+      - iOS-app
+
+targets:
+  macOS-app:
+    type: application
+    platform: macOS
+    scheme: {}
+    sources:
+      - path: Sources
+        includes:
+          - '**/*-macOS.swift'
+          - '**/*.xcassets'
+      - path: Modules/TimeboxMacOSApp/Sources
+        includes:
+          - '**/Main.storyboard'
+      - path: Shared
+        includes:
+          - '**/*.xcassets'
+    settings:
+      PRODUCT_NAME: Timebox
+      INFOPLIST_FILE: Sources/Info-macOS.plist
+      INFOPLIST_PREPROCESS: YES
+      INFOPLIST_OTHER_PREPROCESSOR_FLAGS: -CC
+      CODE_SIGN_ENTITLEMENTS: Sources/App-macOS.entitlements
+    dependencies:
+      - package: TimeboxMacOSApp
+
+  iOS-app:
+    type: application
+    platform: iOS
+    scheme: {}
+    sources:
+      - path: Sources
+        includes:
+          - '**/*-iOS.swift'
+          - '**/*.xcassets'
+      - path: Shared
+        includes:
+          - '**/*.xcassets'
+    settings:
+      PRODUCT_NAME: Timebox
+      INFOPLIST_FILE: Sources/Info-iOS.plist
+      INFOPLIST_PREPROCESS: YES
+      INFOPLIST_OTHER_PREPROCESSOR_FLAGS: -CC
+      CODE_SIGN_ENTITLEMENTS: Sources/App-iOS.entitlements
+    dependencies:
+      - package: TimeboxIOSApp
+
+settings:
+  MARKETING_VERSION: '0.1'
+  CURRENT_PROJECT_VERSION: '$(BUNDLE_VERSION)'
+  GENERATE_INFOPLIST_FILE: YES
+  CODE_SIGN_STYLE: Automatic
+  DEVELOPMENT_TEAM: 465NA5BW7E
+  GE_DEVELOPMENT_CERTIFICATE: 'Apple Development: Grigorii Entin (T6B3YCL946)'
+  GE_BUNDLE_ID_PREFIX: com.gentin$(GE_BUNDLE_ID_EXTRA)
+
+  ENABLE_HARDENED_RUNTIME: YES
+  INFOPLIST_KEY_CFBundleDisplayName: Timebox$(GE_PRODUCT_NAME_EXTRA)
+  PRODUCT_BUNDLE_IDENTIFIER: $(GE_BUNDLE_ID_PREFIX).TimeboxApp
+  PRODUCT_NAME: $(TARGET_NAME)$(GE_PRODUCT_NAME_EXTRA)
+  OTHER_LDFLAGS: -ObjC
+
+  # Overridden for CI runs:
+  BUNDLE_VERSION: Local
+
+  GE_PROJECT_KIND_SUFFIX: __GE_PROJECT_KIND__$(GE_PROJECT_KIND)
+  
+  GE_BUNDLE_ID_EXTRA: $(GE_BUNDLE_ID_EXTRA$(GE_PROJECT_KIND_SUFFIX))
+  GE_BUNDLE_ID_EXTRA__GE_PROJECT_KIND__: .dev
+  GE_BUNDLE_ID_EXTRA__GE_PROJECT_KIND__AppStore:
+  
+  GE_PRODUCT_NAME_EXTRA: $(GE_PRODUCT_NAME_EXTRA$(GE_PROJECT_KIND_SUFFIX))
+  GE_PRODUCT_NAME_EXTRA__PROJECT_KIND__: .dev
+  GE_PRODUCT_NAME_EXTRA__PROJECT_KIND__AppStore:
+
+  GE_CONCURRENCY_SWIFT_FLAGS: -warn-concurrency -enable-actor-data-race-checks
+  OTHER_SWIFT_FLAGS: $(GE_CONCURRENCY_SWIFT_FLAGS)
+  SWIFT_STRICT_CONCURRENCY: complete
+
+options:
+  developmentLanguage: ca
+  bundleIdPrefix: $(GE_BUNDLE_ID_PREFIX)
+  xcodeVersion: 14.3.1
+  deploymentTarget:
+    macOS: 12.0
+    iOS: 16.0
+  createIntermediateGroups: true
+
+packages:
+  TimeboxMacOSApp:
+    path: ./Modules/TimeboxMacOSApp
+  TimeboxIOSApp:
+    path: ./Modules/TimeboxIOSApp
+
+include:
+  - path: project-extras-AppStore.yml
+    relativePaths: false
+    enable: ${GE_PROJECT_KIND_APPSTORE}
