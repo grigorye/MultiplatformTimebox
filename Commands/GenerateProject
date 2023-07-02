@@ -1,0 +1,18 @@
+#! /bin/bash
+
+set -x
+set -euo pipefail
+
+projectKind="$1"
+shift
+
+case "$projectKind" in
+AppStore)
+  export GE_PROJECT_KIND_APPSTORE=true
+  ;;
+DeveloperID)
+  export GE_PROJECT_KIND_APPSTORE=true
+  ;;
+esac
+
+mint run xcodegen
