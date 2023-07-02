@@ -34,7 +34,9 @@ targets:
   iOS-app:
     type: application
     platform: iOS
-    scheme: {}
+    scheme:
+      testTargets:
+        - package: TimeboxIOSApp/TimeboxIOSAppTests
     sources:
       - path: Sources
         includes:
