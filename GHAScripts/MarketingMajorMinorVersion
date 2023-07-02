@@ -3,6 +3,6 @@
 set -x
 set -euo pipefail
 
-ver=$(sed -n 's/^.*"MARKETING_VERSION": "\(.*\)",$/\1/p' Project.swift)
+ver=$(sed -n "s/^ *MARKETING_VERSION: '\(.*\)'$/\1/p" project.yml)
 
 echo "$ver"
