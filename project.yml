@@ -27,6 +27,7 @@ targets:
       INFOPLIST_FILE: Sources/Info-macOS.plist
       INFOPLIST_PREPROCESS: YES
       INFOPLIST_OTHER_PREPROCESSOR_FLAGS: -CC
+      CODE_SIGN_IDENTITY: 'Apple Development'
       CODE_SIGN_ENTITLEMENTS: Sources/App-macOS.entitlements
     dependencies:
       - package: TimeboxMacOSApp
@@ -50,6 +51,7 @@ targets:
       INFOPLIST_FILE: Sources/Info-iOS.plist
       INFOPLIST_PREPROCESS: YES
       INFOPLIST_OTHER_PREPROCESSOR_FLAGS: -CC
+      CODE_SIGN_IDENTITY: 'Apple Development'
       CODE_SIGN_ENTITLEMENTS: Sources/App-iOS.entitlements
     dependencies:
       - package: TimeboxIOSApp
