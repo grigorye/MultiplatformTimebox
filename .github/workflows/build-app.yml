@@ -26,11 +26,12 @@ jobs:
     name: Build App
     needs: [jobs-filter]
     if: needs.jobs-filter.outputs.should-build-app == 'true'
-    uses: grigorye/ReusableWorkflows/.github/workflows/build-app-generic.yml@v5
+    uses: grigorye/ReusableWorkflows/.github/workflows/build-app-generic.yml@v22
     with:
       macos-app-scheme: macOS-app
       ios-app-scheme: iOS-app
       build-configs: ${{ github.event.inputs.build-configs }}
+      runs-on: '["macos-12"]'
     secrets: inherit
 
   finalize-build-app:
