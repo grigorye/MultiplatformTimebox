@@ -26,7 +26,7 @@ jobs:
     name: Build App
     needs: [jobs-filter]
     if: needs.jobs-filter.outputs.should-build-app == 'true'
-    uses: grigorye/ReusableWorkflows/.github/workflows/build-app-generic.yml@v21
+    uses: grigorye/ReusableWorkflows/.github/workflows/build-app-generic.yml@v22
     with:
       macos-app-scheme: macOS-app
       ios-app-scheme: iOS-app
