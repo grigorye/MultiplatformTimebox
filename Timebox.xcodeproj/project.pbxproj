@@ -403,6 +403,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Sources/App-macOS.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Sources/Info-macOS.plist";
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-CC";
@@ -421,7 +422,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Sources/App-iOS.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				INFOPLIST_FILE = "Sources/Info-iOS.plist";
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-CC";
 				INFOPLIST_PREPROCESS = YES;
@@ -525,6 +526,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Sources/App-macOS.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Sources/Info-macOS.plist";
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-CC";
@@ -549,7 +551,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Sources/App-iOS.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				INFOPLIST_FILE = "Sources/Info-iOS.plist";
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-CC";
 				INFOPLIST_PREPROCESS = YES;
