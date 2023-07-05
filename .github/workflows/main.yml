@@ -1,0 +1,63 @@
+name: main
+
+on:
+  workflow_dispatch:
+    inputs:
+      skip-tests:
+        description: Skip tests
+        required: false
+        default: false
+        type: boolean
+      skip-build-app:
+        description: Skip build-app
+        required: false
+        default: false
+        type: boolean
+
+  push:
+    branches: [main]
+
+  pull_request: {}
+
+jobs:
+  tests-filter:
+    name: Filter Tests
+    uses: ./.github/workflows/filter-on-pr-label-or-input.yml
+    secrets: inherit
+    with:
+      action: tests
+      skip-non-pr: ${{ inputs.skip-tests }}
+
+  build-app-filter:
+    name: Filter Build App
+    uses: ./.github/workflows/filter-on-pr-label-or-input.yml
+    secrets: inherit
+    with:
+      action: build-app
+      skip-non-pr: ${{ inputs.skip-build-app }}
+
+  paths-filter:
+    name: Paths Filter
+    uses: ./.github/workflows/paths-filter.yml
+
+  build-app:
+    name: Build App
+    needs: [paths-filter, build-app-filter]
+    if: ${{ !inputs.skip-build-app && github.event.pull_request.draft != true && needs.paths-filter.outputs.should-build-app != 'false' && needs.build-app-filter.outputs.should-run == 'true' }}
+    uses: grigorye/ReusableWorkflows/.github/workflows/build-app-generic.yml@v21
+    with:
+      macos-app-scheme: macOS-app
+      ios-app-scheme: iOS-app
+      build-configs: '[\"app-store\", \"developer-id\", \"ios\"]'
+      runs-on: macos-12
+    secrets: inherit
+
+  tests:
+    name: Tests
+    needs: [paths-filter, tests-filter]
+    if: ${{ !inputs.skip-tests && github.event.pull_request.draft != true && needs.paths-filter.outputs.should-test != 'false' && needs.tests-filter.outputs.should-run == 'true' }}
+    uses: grigorye/ReusableWorkflows/.github/workflows/tests-generic.yml@v21
+    secrets: inherit
+    with:
+      runs-on: macos-12
+      unit-tests-scheme: iOS-app
