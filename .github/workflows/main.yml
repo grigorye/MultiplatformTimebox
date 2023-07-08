@@ -44,7 +44,7 @@ jobs:
     name: Build App
     needs: [paths-filter, build-app-filter]
     if: ${{ !inputs.skip-build-app && github.event.pull_request.draft != true && needs.paths-filter.outputs.should-build-app != 'false' && needs.build-app-filter.outputs.should-run == 'true' }}
-    uses: grigorye/ReusableWorkflows/.github/workflows/build-app-generic.yml@v21
+    uses: grigorye/ReusableWorkflows/.github/workflows/build-app-generic.yml@v23
     with:
       macos-app-scheme: macOS-app
       ios-app-scheme: iOS-app
@@ -56,7 +56,7 @@ jobs:
     name: Tests
     needs: [paths-filter, tests-filter]
     if: ${{ !inputs.skip-tests && github.event.pull_request.draft != true && needs.paths-filter.outputs.should-test != 'false' && needs.tests-filter.outputs.should-run == 'true' }}
-    uses: grigorye/ReusableWorkflows/.github/workflows/tests-generic.yml@v21
+    uses: grigorye/ReusableWorkflows/.github/workflows/tests-generic.yml@v23
     secrets: inherit
     with:
       runs-on: macos-12
