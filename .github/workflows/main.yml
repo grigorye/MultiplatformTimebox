@@ -60,5 +60,5 @@ jobs:
     secrets: inherit
     with:
       runs-on: macos-12
-      unit-tests-scheme: iOS-app
-      unit-tests-xcodebuild-extra-args-json: '["-destination", "platform=iOS Simulator,name=iPhone 14"]'
+      unit-tests-scheme: iOS-tests
+      unit-tests-xcodebuild-extra-args-json: '["-destination", "platform=macOS,arch=arm64,variant=Mac Catalyst"]'
