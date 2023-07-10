@@ -59,6 +59,6 @@ jobs:
     uses: grigorye/ReusableWorkflows/.github/workflows/tests-generic.yml@v23
     secrets: inherit
     with:
-      runs-on: macos-12
+      runs-on: '["macos-12"]'
       unit-tests-scheme: iOS-tests
       unit-tests-xcodebuild-extra-args-json: '["-destination", "platform=macOS,arch=arm64,variant=Mac Catalyst"]'
