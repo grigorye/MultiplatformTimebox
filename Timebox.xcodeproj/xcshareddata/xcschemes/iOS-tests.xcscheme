@@ -7,16 +7,16 @@
       buildImplicitDependencies = "YES">
       <BuildActionEntries>
          <BuildActionEntry
-            buildForTesting = "YES"
+            buildForTesting = "NO"
             buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AA0444708CDD5A82C546A1A7"
+               BlueprintIdentifier = "14F498C7FC8A915B91E7F617"
                BuildableName = "Timebox.app"
-               BlueprintName = "macOS-app"
+               BlueprintName = "iOS-app"
                ReferencedContainer = "container:Timebox.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -27,16 +27,17 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AA0444708CDD5A82C546A1A7"
-            BuildableName = "Timebox.app"
-            BlueprintName = "macOS-app"
-            ReferencedContainer = "container:Timebox.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "TimeboxIOSAppTests"
+               BuildableName = "TimeboxIOSAppTests"
+               BlueprintName = "TimeboxIOSAppTests"
+               ReferencedContainer = "container:Modules/TimeboxIOSApp">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -49,16 +50,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AA0444708CDD5A82C546A1A7"
+            BlueprintIdentifier = "14F498C7FC8A915B91E7F617"
             BuildableName = "Timebox.app"
-            BlueprintName = "macOS-app"
+            BlueprintName = "iOS-app"
             ReferencedContainer = "container:Timebox.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -66,16 +66,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AA0444708CDD5A82C546A1A7"
+            BlueprintIdentifier = "14F498C7FC8A915B91E7F617"
             BuildableName = "Timebox.app"
-            BlueprintName = "macOS-app"
+            BlueprintName = "iOS-app"
             ReferencedContainer = "container:Timebox.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

@@ -35,9 +35,7 @@ targets:
   iOS-app:
     type: application
     platform: iOS
-    scheme:
-      testTargets:
-        - package: TimeboxIOSApp/TimeboxIOSAppTests
+    scheme: {}
     sources:
       - path: Sources
         includes:
@@ -56,6 +54,16 @@ targets:
     dependencies:
       - package: TimeboxIOSApp
 
+schemes:
+  iOS-tests:
+    build:
+      targets:
+        iOS-app: [run]
+    run:
+      executable:
+    test:
+      targets:
+        - package: TimeboxIOSApp/TimeboxIOSAppTests
 settings:
   MARKETING_VERSION: '0.1'
   CURRENT_PROJECT_VERSION: '$(BUNDLE_VERSION)'
